@@ -1,0 +1,13 @@
+---
+name: "3045 test"
+related_source_name: "abcdCrell Update"
+description: "x"
+expression: "[This].accountnumber = [Related].b"
+primary_flag: false
+source_cardinality: "M"
+related_source_cardinality: "M"
+active_flag: true
+create_datetime: "2022-06-07T21:42:55.087422"
+created_userid: "jswanson@wmp.com"
+update_datetime: "2022-06-07T21:44:21.112111"
+updated_userid: "jswanson@wmp.com"

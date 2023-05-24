@@ -1,0 +1,214 @@
+---
+source_name: "3275group test 3275 a"
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderdetail"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+template_name: "${GROUP} test 3275 a"
+group_name: "3275group"
+hub_view_name: "salesorderdetail_a___testing_3275"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 19
+active_flag: true
+create_datetime: "2022-06-06T18:07:00.127543"
+created_userid: "jswanson@wmp.com"
+update_datetime: "2022-06-06T18:18:10.943614"
+updated_userid: "jswanson@wmp.com"
+raw_attributes:
+- raw_attribute_name: "linetotal"
+  column_normalized: "linetotal"
+  raw_metadata:
+    scale: 6
+    precision: 38
+    nullable_flag: false
+  data_type: "decimal"
+  version_number: 1
+  column_alias: "linetotal"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:07:18.791625"
+- raw_attribute_name: "orderqty"
+  column_normalized: "orderqty"
+  raw_metadata:
+    scale: 0
+    precision: 5
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "orderqty"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:07:18.791625"
+dependencies:
+- source_name: "3275group test 3275 b"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-06-06T18:14:37.823437"
+  created_userid: "jswanson@wmp.com"
+- source_name: "salesorderdetail c - testing 3275"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-06-06T18:14:55.156004"
+  created_userid: "jswanson@wmp.com"
+relations:
+- relation_uid: "86dd07f57cff9f67f478764f3072953b"
+  related_source_name: "salesorderdetail c - testing 3275"
+  relation_name: "a to c"
+  relation_template_name: "a to c"
+  primary_flag: false
+  expression: "[This].orderqty = [Related].orderqty"
+  source_cardinality: "M"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1> = P<2>"
+  active_flag: true
+  create_datetime: "2022-06-06T18:14:55.156004"
+  created_userid: "jswanson@wmp.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  updated_userid: "jswanson@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "orderqty"
+    source_name: "3275group test 3275 a"
+  - id: 2
+    type: "raw"
+    name: "orderqty"
+    source_name: "salesorderdetail c - testing 3275"
+- relation_uid: "f03d04187e4912c5ab883c9c01e80e96"
+  related_source_name: "3275group test 3275 b"
+  relation_name: "a to bz"
+  primary_flag: false
+  expression: "[This].linetotal = [Related].linetotal"
+  source_cardinality: "M"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1> = P<2>"
+  active_flag: true
+  create_datetime: "2022-06-06T18:14:37.823437"
+  created_userid: "jswanson@wmp.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  updated_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "linetotal"
+    source_name: "3275group test 3275 a"
+  - id: 2
+    type: "raw"
+    name: "linetotal"
+    source_name: "3275group test 3275 b"
+rules:
+- attribute_name: "enrich_1"
+  name: "enrich 1"
+  description: "x"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "max([This]~{a to bz}~[3275group test 3275 b].carriertrackingnumber)"
+  expression_parsed: "A<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T18:15:28.625418"
+  created_userid: "jswanson@wmp.com"
+  update_datetime: "2022-06-06T18:20:06.134984"
+  updated_userid: "jswanson@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "3275group test 3275 b"
+    relation_uids:
+    - "f03d04187e4912c5ab883c9c01e80e96"
+    self_relation_container: "Related"
+    aggregation_ids:
+    - 1
+  aggregations:
+  - id: 1
+    expression: "max(P<1>)"
+    function: "max"
+    relation_uids:
+    - "f03d04187e4912c5ab883c9c01e80e96"
+- attribute_name: "enrich_2"
+  name: "enrich 2"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "max([This]~{a to c}~[salesorderdetail c - testing 3275].carriertrackingnumber)"
+  expression_parsed: "A<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T18:15:47.837307"
+  created_userid: "jswanson@wmp.com"
+  update_datetime: "2022-06-06T18:20:30.824722"
+  updated_userid: "jswanson@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "salesorderdetail c - testing 3275"
+    relation_uids:
+    - "86dd07f57cff9f67f478764f3072953b"
+    self_relation_container: "Related"
+    aggregation_ids:
+    - 1
+  aggregations:
+  - id: 1
+    expression: "max(P<1>)"
+    function: "max"
+    relation_uids:
+    - "86dd07f57cff9f67f478764f3072953b"
+- attribute_name: "test"
+  name: "test"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "1 + null"
+  expression_parsed: "1 + null"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-07T21:34:53.293238"
+  created_userid: "jswanson@wmp.com"
+channels:
+- output_name: "virtual"
+  output_source_name: "3275group test 3275 a"
+  filter: ""
+  operation_type: "none"
+  output_package_parameters:
+    key_history: false
+    full_output_flag: false
+    custom_parameters: {}
+  include_pass_flag: true
+  include_fail_flag: false
+  include_warn_flag: false
+  active_flag: true
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-06-07T21:28:50.855652"
+  updated_userid: "jswanson@wmp.com"
+  update_datetime: "2022-06-07T21:29:20.921677"

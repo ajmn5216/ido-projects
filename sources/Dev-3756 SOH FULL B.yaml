@@ -1,0 +1,83 @@
+---
+source_name: "Dev-3756 SOH FULL B"
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderheader"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_emails: []
+  ingestion_failure_topics: []
+  ingestion_success_emails: []
+  ingestion_success_topics: []
+  data_processing_failure_emails: []
+  data_processing_failure_topics: []
+  data_processing_success_emails: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 0
+  disable_profiling: false
+hub_view_name: "dev_3756_sod_full"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 3
+active_flag: true
+create_datetime: "2023-02-07T21:38:17.995508"
+created_userid: "ajudd@westmonroe.com"
+update_datetime: "2023-02-07T21:41:32.191018"
+updated_userid: "ajudd@westmonroe.com"
+raw_attributes:
+- raw_attribute_name: "customerid"
+  column_normalized: "customerid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "customerid"
+  unique_flag: false
+  update_datetime: "2023-02-07T21:45:13.759023"
+dependencies:
+- source_name: "Dev-3756 Customer KEY A"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2023-02-07T21:47:04.216117"
+  created_userid: "ajudd@westmonroe.com"
+rules:
+- attribute_name: "keep_current_lookup"
+  name: "keep current lookup"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This]~[Dev-3756 Customer KEY A].storeid"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-02-07T22:09:52.890647"
+  created_userid: "ajudd@westmonroe.com"
+  update_datetime: "2023-02-07T22:10:00.446216"
+  updated_userid: "ajudd@westmonroe.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "storeid"
+    source_name: "Dev-3756 Customer KEY A"
+    relation_uids:
+    - "6b34c1963f03170aca0bd2c136ade15f"
+    self_relation_container: "Related"

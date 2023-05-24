@@ -1,0 +1,13 @@
+---
+name: "id_long"
+datatype: "int"
+cast_datatype: "int"
+attribute_name: "id_long"
+expression: "[This].productid + 1"
+rule_type_code: "E"
+keep_current_flag: false
+window_function_flag: false
+unique_flag: false
+active_flag: true
+create_datetime: "2022-09-22T18:26:54.363218"
+created_userid: "vorlov@wmp.com"

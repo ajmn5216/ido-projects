@@ -1,0 +1,77 @@
+---
+output_name: "testing a bad delta lake with spaces"
+output_type: "table"
+output_package_parameters:
+  table_name: "testingspaces"
+  manage_table: true
+  table_schema: "na"
+  create_cci_on_table: false
+  output_source_id_partition: true
+output_description: "x"
+output_sub_type: "delta_lake"
+connection_name: "Delta Lake"
+alert_parameters:
+  output_failure_topics: []
+  output_success_topics: []
+post_output_type: "none"
+columns:
+- position: 1
+  name: "carriertrackingnumber"
+  datatype: "string"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+- position: 2
+  name: "linetotal"
+  datatype: "decimal"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+- position: 3
+  name: "modifieddate "
+  datatype: "timestamp"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+  updated_userid: "jswanson@wmp.com"
+  update_datetime: "2022-07-12T17:01:55.029144"
+- position: 4
+  name: "orderqty"
+  datatype: "integer"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+- position: 5
+  name: "productid"
+  datatype: "integer"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+- position: 6
+  name: "rowguid"
+  datatype: "string"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+- position: 7
+  name: "salesorderdetailid"
+  datatype: "integer"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+- position: 8
+  name: "salesorderid"
+  datatype: "integer"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+- position: 9
+  name: "specialofferid"
+  datatype: "integer"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+- position: 10
+  name: "unitprice"
+  datatype: "decimal"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+- position: 11
+  name: "unitpricediscount"
+  datatype: "decimal"
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:54:11.685199"
+active_flag: true
+created_userid: "jswanson@wmp.com"
+create_datetime: "2022-07-12T16:53:58.227947"

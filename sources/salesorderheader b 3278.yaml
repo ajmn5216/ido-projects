@@ -1,0 +1,51 @@
+---
+source_name: "salesorderheader b 3278"
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderheader"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2022-06-06T18:27:51.273933"
+created_userid: "jswanson@wmp.com"
+raw_attributes:
+- raw_attribute_name: "billtoaddressid"
+  column_normalized: "billtoaddressid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "billtoaddressid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:28:14.524512"
+dependencies:
+- source_name: "salesorderheader a 3278"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-06-06T18:32:20.89934"
+  created_userid: "jswanson@wmp.com"

@@ -1,0 +1,32 @@
+---
+source_name: "DEV-3491-Ingestion breaks on raw attribute part 2"
+source_description: "DEV-3491-Ingestion breaks on raw attribute part 2"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from test.dev_3491_ingestion_breaks_on_raw_attribute_"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "DEV-3170-Hive Metastore"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2022-09-19T15:45:23.286202"
+created_userid: "aakanda@westmonroepartners.com"

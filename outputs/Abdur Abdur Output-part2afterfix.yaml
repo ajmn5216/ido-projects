@@ -1,0 +1,125 @@
+---
+output_name: "Abdur Abdur Output-part2afterfix"
+output_type: "virtual"
+output_package_parameters:
+  view_name: "abdur_output_part2afterfixAbdurTest"
+output_description: "Abdur Virtual Output"
+alert_parameters:
+  output_failure_emails: []
+  output_failure_topics: []
+  output_success_emails: []
+  output_success_topics: []
+post_output_type: "none"
+template_name: "Abdur ${GROUP}"
+group_name: "Abdur Output-part2afterfix"
+columns:
+- position: 2
+  name: "abdur_dev3381"
+  datatype: "decimal"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 3
+  name: "abdurtest"
+  datatype: "string"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 4
+  name: "carriertrackingnumber"
+  datatype: "string"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 5
+  name: "linetotal"
+  datatype: "decimal"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 6
+  name: "modifieddate"
+  datatype: "timestamp"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 7
+  name: "orderqty"
+  datatype: "int"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 8
+  name: "productid"
+  datatype: "int"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 9
+  name: "rowguid"
+  datatype: "string"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 10
+  name: "salesorderdetailid"
+  datatype: "int"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 11
+  name: "salesorderid"
+  datatype: "int"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 12
+  name: "specialofferid"
+  datatype: "int"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 13
+  name: "test"
+  datatype: "int"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 14
+  name: "test2"
+  datatype: "int"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 15
+  name: "test2_conversion_status_flag"
+  datatype: "boolean"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 16
+  name: "unitprice"
+  datatype: "decimal"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 17
+  name: "unitpricediscount"
+  datatype: "decimal"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 18
+  name: "window_function"
+  datatype: "int"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 19
+  name: "window_function_test"
+  datatype: "int"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2022-10-26T13:13:19.409284"
+- position: 20
+  name: "abdur_cleanup_refreshtype_key"
+  datatype: "decimal"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2023-04-26T00:43:26.071232"
+- position: 21
+  name: "dev3741_lowercase"
+  datatype: "decimal"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2023-04-26T00:43:26.071232"
+- position: 22
+  name: "double_price"
+  datatype: "decimal"
+  created_userid: "aakanda@westmonroepartners.com"
+  create_datetime: "2023-04-26T00:43:26.071232"
+active_flag: true
+created_userid: "aakanda@westmonroepartners.com"
+create_datetime: "2022-10-26T13:13:19.409284"
+update_datetime: "2023-04-26T19:40:52.464322"
+updated_userid: "aakanda@westmonroepartners.com"

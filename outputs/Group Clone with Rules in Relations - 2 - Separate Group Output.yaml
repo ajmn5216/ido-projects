@@ -1,0 +1,44 @@
+---
+output_name: "Group Clone with Rules in Relations - 2 - Separate Group Output"
+output_type: "table"
+output_package_parameters:
+  table_name: "example"
+  manage_table: true
+  table_schema: "na"
+  create_cci_on_table: false
+  output_source_id_partition: true
+output_description: "New output for each group cloned"
+output_sub_type: "snowflake"
+connection_name: "No password"
+alert_parameters:
+  output_failure_emails: []
+  output_failure_topics: []
+  output_success_emails: []
+  output_success_topics: []
+post_output_type: "none"
+template_name: "${GROUP} - Separate Group Output"
+group_name: "Group Clone with Rules in Relations - 2"
+columns:
+- position: 1
+  name: "id"
+  datatype: "TEXT"
+  created_userid: "ajudd@westmonroe.com"
+  create_datetime: "2023-02-07T21:31:00.575299"
+- position: 2
+  name: "unique_id"
+  datatype: "TEXT"
+  created_userid: "ajudd@westmonroe.com"
+  create_datetime: "2023-02-07T21:31:00.575299"
+- position: 3
+  name: "unique_id_uv_flag"
+  datatype: "BOOLEAN"
+  created_userid: "ajudd@westmonroe.com"
+  create_datetime: "2023-02-07T21:31:00.575299"
+- position: 4
+  name: "value"
+  datatype: "TEXT"
+  created_userid: "ajudd@westmonroe.com"
+  create_datetime: "2023-02-07T21:31:00.575299"
+active_flag: true
+created_userid: "ajudd@westmonroe.com"
+create_datetime: "2023-02-07T21:31:00.575299"

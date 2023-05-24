@@ -1,0 +1,11 @@
+---
+name: "SOH -> SOH"
+related_source_name: "SOH"
+description: "x"
+expression: "[This].salesorderid = [Related].salesorderid +1"
+source_cardinality: "M"
+related_source_cardinality: "1"
+active_flag: true
+create_datetime: "2022-04-08T18:36:55.111512"
+created_userid: "jswanson@wmp.com"
+update_datetime: "2022-04-13T15:34:56.909498"

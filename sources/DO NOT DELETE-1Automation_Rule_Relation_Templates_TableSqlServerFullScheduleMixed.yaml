@@ -1,0 +1,375 @@
+---
+source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+source_description: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "SELECT * FROM Sales.SalesOrderDetail"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_emails: []
+  ingestion_failure_topics: []
+  ingestion_success_emails: []
+  ingestion_success_topics: []
+  data_processing_failure_emails: []
+  data_processing_failure_topics: []
+  data_processing_success_emails: []
+  data_processing_success_topics: []
+refresh_type: "none"
+connection_type: "table"
+connection_name: "Abdur AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+schedule_name: "Default"
+hub_view_name: "_1automation_rule_relation_templates_tablesqlserverfullschedulemixed"
+process_configuration_name: "Abdur Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 38
+active_flag: true
+create_datetime: "2023-03-31T20:15:38.164493"
+created_userid: "testenvironmenttest@wmp.com"
+update_datetime: "2023-04-11T19:15:29.106815"
+updated_userid: "aakanda@westmonroepartners.com"
+raw_attributes:
+- raw_attribute_name: "carriertrackingnumber"
+  column_normalized: "carriertrackingnumber"
+  raw_metadata:
+    scale: 0
+    precision: 25
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "carriertrackingnumber"
+  unique_flag: false
+  update_datetime: "2023-03-31T20:18:48.902452"
+- raw_attribute_name: "orderqty"
+  column_normalized: "orderqty"
+  raw_metadata:
+    scale: 0
+    precision: 5
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "orderqty"
+  unique_flag: false
+  update_datetime: "2023-03-31T20:18:48.902452"
+- raw_attribute_name: "productid"
+  column_normalized: "productid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "productid"
+  unique_flag: false
+  update_datetime: "2023-03-31T20:18:48.902452"
+- raw_attribute_name: "salesorderdetailid"
+  column_normalized: "salesorderdetailid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "salesorderdetailid"
+  unique_flag: false
+  update_datetime: "2023-03-31T20:18:48.902452"
+- raw_attribute_name: "salesorderid"
+  column_normalized: "salesorderid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "salesorderid"
+  unique_flag: false
+  update_datetime: "2023-03-31T20:18:48.902452"
+dependencies:
+- source_name: "Abdur Cleanup RefreshType key"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2023-04-11T18:57:05.131483"
+  created_userid: "aakanda@westmonroepartners.com"
+relations:
+- relation_uid: "54daa2f6ec9be6c7e460a74bbaa36633"
+  related_source_name: "Abdur Cleanup RefreshType key"
+  relation_name: "Many to Many"
+  primary_flag: false
+  expression: "[This].salesorderid=[Related].salesorderid"
+  source_cardinality: "M"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1>=P<2>"
+  active_flag: true
+  create_datetime: "2023-04-11T19:20:31.792951"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderid"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+  - id: 2
+    type: "raw"
+    name: "salesorderid"
+    source_name: "Abdur Cleanup RefreshType key"
+- relation_uid: "723e863e1fe90e2bfe9ead895bc7d721"
+  related_source_name: "Abdur Cleanup RefreshType key"
+  relation_name: "One-to-One Relation"
+  primary_flag: true
+  expression: "[This].salesorderdetailid=[Related].salesorderdetailid"
+  source_cardinality: "M"
+  related_source_cardinality: "1"
+  expression_parsed: "P<1>=P<2>"
+  active_flag: true
+  create_datetime: "2023-04-11T18:57:05.131483"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-04-11T18:57:29.935834"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderdetailid"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+  - id: 2
+    type: "raw"
+    name: "salesorderdetailid"
+    source_name: "Abdur Cleanup RefreshType key"
+rules:
+- attribute_name: "relation_many_testrule3"
+  name: "Relation_Many_TestRule3"
+  datatype: "decimal"
+  cast_datatype: "int"
+  expression: "[Abdur Cleanup RefreshType key].linetotal+1"
+  expression_parsed: "P<1>+1"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-11T19:31:09.377394"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-04-11T19:31:28.052893"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "linetotal"
+    source_name: "Abdur Cleanup RefreshType key"
+    relation_uids:
+    - "723e863e1fe90e2bfe9ead895bc7d721"
+    self_relation_container: "Related"
+- attribute_name: "relation_one_testrule1"
+  name: "Relation One TestRule1"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[Abdur Cleanup RefreshType key].salesorderdetailid"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-11T19:00:06.813782"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderdetailid"
+    source_name: "Abdur Cleanup RefreshType key"
+    relation_uids:
+    - "723e863e1fe90e2bfe9ead895bc7d721"
+    self_relation_container: "Related"
+- attribute_name: "relation_one_testrule2"
+  name: "Relation One TestRule2"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This]~[Abdur Cleanup RefreshType key].carriertrackingnumber"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-11T19:01:28.166159"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "Abdur Cleanup RefreshType key"
+    relation_uids:
+    - "723e863e1fe90e2bfe9ead895bc7d721"
+    self_relation_container: "Related"
+- attribute_name: "testrule1_snapshot"
+  name: "TestRule1-Spanshot"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This].salesorderid"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-07T21:09:31.635461"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-04-07T21:10:03.214669"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderid"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+- attribute_name: "testrule2_keep_current"
+  name: "TestRule2-Keep Current"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This].salesorderid"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-07T21:10:58.418859"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderid"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+- attribute_name: "testrule3_data_type_int"
+  name: "TestRule3-Data Type Int"
+  description: "Changing data type"
+  datatype: "string"
+  cast_datatype: "int"
+  expression: "[This].carriertrackingnumber"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-07T21:13:20.900913"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+- attribute_name: "testrule3_data_type_int_conversion_status_flag"
+  name: "TestRule3-Data Type Int Conversion Validation"
+  parent_attribute_name: "testrule3_data_type_int"
+  description: "Auto-generated Validation to check data type conversion status of\
+    \ testrule3_data_type_int attribute"
+  datatype: "boolean"
+  expression: "CASE WHEN [This].carriertrackingnumber IS NOT NULL AND [This].testrule3_data_type_int\
+    \ IS NULL THEN false ELSE true END"
+  expression_parsed: "CASE WHEN P<2> IS NOT NULL AND P<1> IS NULL THEN false ELSE\
+    \ true END"
+  rule_type_code: "V"
+  validation_action_code: "W"
+  validation_type_code: "C"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-07T21:13:49.640242"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "enrichment"
+    name: "testrule3_data_type_int"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+  - id: 2
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+- attribute_name: "testrule4_calculation"
+  name: "TestRule4-calculation"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This].salesorderid + 1"
+  expression_parsed: "P<1> + 1"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-07T21:17:12.398378"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderid"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+- attribute_name: "testrule5template"
+  rule_template_name: "TestRule5-Template"
+  name: "TestRule5-Template"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This].salesorderdetailid"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-07T21:18:37.597562"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderdetailid"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+- attribute_name: "testrule6_windon_function"
+  name: "TestRule6_Windon_Function"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "MAX([This].orderqty)OVER (PARTITION BY [This].productid)"
+  expression_parsed: "MAX(P<2>)OVER (PARTITION BY P<1>)"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: true
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-07T21:21:23.986224"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "productid"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+  - id: 2
+    type: "raw"
+    name: "orderqty"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"
+- attribute_name: "testrule7_window_function_self"
+  name: "TestRule7_window_function_self"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This].testrule6_windon_function+1"
+  expression_parsed: "P<1>+1"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-07T21:23:19.575599"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "enrichment"
+    name: "testrule6_windon_function"
+    source_name: "DO NOT DELETE-1Automation_Rule_Relation_Templates_TableSqlServerFullScheduleMixed"

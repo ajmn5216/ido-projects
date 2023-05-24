@@ -1,0 +1,44 @@
+---
+output_name: "Clone Separate Group Channels Loopback"
+output_type: "virtual"
+output_package_parameters:
+  view_name: "example"
+output_description: "x"
+alert_parameters:
+  output_failure_topics: []
+  output_success_topics: []
+post_output_type: "none"
+columns:
+- position: 1
+  name: "id"
+  datatype: "string"
+  created_userid: "ajudd@westmonroe.com"
+  create_datetime: "2023-02-07T20:40:30.5835"
+  updated_userid: "ajudd@westmonroe.com"
+  update_datetime: "2023-02-10T20:07:01.047649"
+- position: 2
+  name: "unique_id"
+  datatype: "string"
+  created_userid: "ajudd@westmonroe.com"
+  create_datetime: "2023-02-07T20:40:30.5835"
+  updated_userid: "ajudd@westmonroe.com"
+  update_datetime: "2023-02-10T20:07:01.047649"
+- position: 3
+  name: "unique_id_uv_flag"
+  datatype: "boolean"
+  created_userid: "ajudd@westmonroe.com"
+  create_datetime: "2023-02-07T20:40:30.5835"
+  updated_userid: "ajudd@westmonroe.com"
+  update_datetime: "2023-02-10T20:07:01.047649"
+- position: 4
+  name: "value"
+  datatype: "string"
+  created_userid: "ajudd@westmonroe.com"
+  create_datetime: "2023-02-07T20:40:30.5835"
+  updated_userid: "ajudd@westmonroe.com"
+  update_datetime: "2023-02-10T20:07:01.047649"
+active_flag: true
+created_userid: "ajudd@westmonroe.com"
+create_datetime: "2023-02-07T20:40:30.5835"
+update_datetime: "2023-02-10T20:07:01.047649"
+updated_userid: "ajudd@westmonroe.com"

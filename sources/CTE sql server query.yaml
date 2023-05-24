@@ -1,0 +1,229 @@
+---
+source_name: "CTE sql server query"
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "with averages\nas\n(\nselect avg(unitprice) as averageOrders, month(orderdate)\
+    \ as month, year(orderdate) as year from sales.salesorderdetail sod \ninner join\
+    \  sales.salesorderheader soh on soh.salesorderid = sod.salesorderid\ngroup by\
+    \ year(orderdate), month(orderdate)\n)\n\nselect * from averages order by year,\
+    \ month"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 27
+active_flag: true
+create_datetime: "2022-04-01T18:14:34.702762"
+created_userid: "jswanson@wmp.com"
+update_datetime: "2022-04-13T15:25:18.112953"
+updated_userid: "jswanson@wmp.com"
+raw_attributes:
+- raw_attribute_name: "averageorders"
+  column_normalized: "averageorders"
+  raw_metadata:
+    scale: 4
+    precision: 19
+    nullable_flag: true
+  data_type: "decimal"
+  version_number: 1
+  column_alias: "averageorders"
+  unique_flag: false
+  update_datetime: "2022-04-01T18:22:04.408495"
+- raw_attribute_name: "month"
+  column_normalized: "month"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: true
+  data_type: "int"
+  version_number: 1
+  column_alias: "month"
+  unique_flag: false
+  update_datetime: "2022-04-01T18:22:04.408495"
+rules:
+- attribute_name: "fail1"
+  name: "Fail1"
+  datatype: "boolean"
+  expression: "[This].averageorders > 1"
+  expression_parsed: "P<1> > 1"
+  rule_type_code: "V"
+  validation_action_code: "F"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T21:59:46.262919"
+  created_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "averageorders"
+    source_name: "CTE sql server query"
+- attribute_name: "fail2"
+  name: "Fail2"
+  datatype: "boolean"
+  expression: "[This].month > 1"
+  expression_parsed: "P<1> > 1"
+  rule_type_code: "V"
+  validation_action_code: "F"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T22:00:03.176347"
+  created_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "month"
+    source_name: "CTE sql server query"
+- attribute_name: "ignore1"
+  name: "Ignore1"
+  datatype: "boolean"
+  expression: "[This].averageorders > 11"
+  expression_parsed: "P<1> > 11"
+  rule_type_code: "V"
+  validation_action_code: "I"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T22:00:58.701157"
+  created_userid: "jcrell@wmp.com"
+  update_datetime: "2022-06-06T22:01:24.290497"
+  updated_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "averageorders"
+    source_name: "CTE sql server query"
+- attribute_name: "ignore2"
+  name: "Ignore2"
+  datatype: "boolean"
+  expression: "[This].month > 9"
+  expression_parsed: "P<1> > 9"
+  rule_type_code: "V"
+  validation_action_code: "I"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T22:01:13.713052"
+  created_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "month"
+    source_name: "CTE sql server query"
+- attribute_name: "rule1"
+  name: "Rule1"
+  datatype: "decimal"
+  cast_datatype: ""
+  expression: "[This].averageorders"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T21:59:23.135311"
+  created_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "averageorders"
+    source_name: "CTE sql server query"
+- attribute_name: "rule2"
+  name: "Rule2"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This].month"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T21:59:32.546804"
+  created_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "month"
+    source_name: "CTE sql server query"
+- attribute_name: "test_2916"
+  name: "test 2916"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This].month + [This].month"
+  expression_parsed: "P<1> + P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T16:37:13.599345"
+  created_userid: "jswanson@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "month"
+    source_name: "CTE sql server query"
+- attribute_name: "warn1"
+  name: "Warn1"
+  datatype: "boolean"
+  expression: "[This].month > 4"
+  expression_parsed: "P<1> > 4"
+  rule_type_code: "V"
+  validation_action_code: "W"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T22:00:19.150213"
+  created_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "month"
+    source_name: "CTE sql server query"
+- attribute_name: "warn2"
+  name: "Warn2"
+  datatype: "boolean"
+  expression: "[This].averageorders > 10"
+  expression_parsed: "P<1> > 10"
+  rule_type_code: "V"
+  validation_action_code: "W"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-06T22:00:48.137127"
+  created_userid: "jcrell@wmp.com"
+  update_datetime: "2022-06-06T22:01:32.630671"
+  updated_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "averageorders"
+    source_name: "CTE sql server query"

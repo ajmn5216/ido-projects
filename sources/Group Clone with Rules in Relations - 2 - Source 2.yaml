@@ -1,0 +1,204 @@
+---
+source_name: "Group Clone with Rules in Relations - 2 - Source 2"
+source_description: "source for testing clones"
+ingestion_parameters:
+  file_mask: "inbox/test/ajtest.csv"
+  delete_file: false
+  mask_parsing: "glob"
+  source_file_type: "single_file"
+  disable_initiation: false
+parsing_parameters:
+  sep: ","
+  mode: "FAILFAST"
+  quote: "\""
+  escape: "\\"
+  header: true
+  locale: "en-US"
+  encoding: "UTF-8"
+  nanValue: "NaN"
+  multiLine: false
+  nullValue: "empty string"
+  emptyValue: "empty string"
+  maxColumns: 20480
+  inferSchema: false
+  negativeInf: "-Inf"
+  positiveInf: "Inf"
+  enforceSchema: true
+  samplingRatio: 1
+  timestampFormat: "yyyy-MM-dd HH:mm:ss[.SSS][XXX]"
+  maxCharsPerColumn: -1
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  ignoreLeadingWhiteSpace: false
+  lock_schema_new_columns: false
+  ignoreTrailingWhiteSpace: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_emails: []
+  ingestion_failure_topics: []
+  ingestion_success_emails: []
+  ingestion_success_topics: []
+  data_processing_failure_emails: []
+  data_processing_failure_topics: []
+  data_processing_success_emails: []
+  data_processing_success_topics: []
+file_type: "delimited"
+refresh_type: "full"
+connection_type: "file"
+connection_name: "Group Clone with Rules in Relations - 2 - Clone Connection"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 0
+  disable_profiling: false
+template_name: "${GROUP} - Source 2"
+group_name: "Group Clone with Rules in Relations - 2"
+process_configuration_name: "Default Sparky Configuration"
+ipu_rules_weight: 14
+active_flag: true
+create_datetime: "2023-02-07T21:31:00.575299"
+created_userid: "ajudd@westmonroe.com"
+raw_attributes:
+- raw_attribute_name: "id"
+  column_normalized: "id"
+  data_type: "string"
+  version_number: 1
+  column_alias: "id"
+  unique_flag: false
+  update_datetime: "2023-02-07T21:31:00.575299"
+- raw_attribute_name: "value"
+  column_normalized: "value"
+  data_type: "string"
+  version_number: 1
+  column_alias: "value"
+  unique_flag: false
+  update_datetime: "2023-02-07T21:31:00.575299"
+dependencies:
+- source_name: "Group Clone with Rules in Relations - 2 - Source 1"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2023-02-07T21:31:00.575299"
+  created_userid: "ajudd@westmonroe.com"
+rules:
+- attribute_name: "rule_from_other_source"
+  rule_template_name: "rule from other source"
+  name: "rule from other source"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This]~{test -  Source 1 to Source 2}~[Group Clone with Rules in Relations\
+    \ - 2 - Source 1].value"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-02-07T21:31:00.575299"
+  created_userid: "ajudd@westmonroe.com"
+  update_datetime: "2023-02-07T21:31:00.575299"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "value"
+    source_name: "Group Clone with Rules in Relations - 2 - Source 1"
+    relation_uids:
+    - "a06208b2780e75502d8946d9560c389d"
+    self_relation_container: "Related"
+- attribute_name: "unique_id"
+  rule_template_name: "unique_id"
+  name: "unique_id"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This].id"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: true
+  active_flag: true
+  create_datetime: "2023-02-07T21:31:00.575299"
+  created_userid: "ajudd@westmonroe.com"
+  update_datetime: "2023-02-07T21:31:00.575299"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "id"
+    source_name: "Group Clone with Rules in Relations - 2 - Source 2"
+- attribute_name: "unique_id_uv_flag"
+  rule_template_name: "unique_id uniqueness validation"
+  name: "unique_id uniqueness validation"
+  parent_attribute_name: "unique_id"
+  description: "Auto-generated rule to validate uniqueness of unique_id"
+  datatype: "boolean"
+  expression: "COUNT(1) OVER (PARTITION BY [This].unique_id) = 1"
+  expression_parsed: "COUNT(1) OVER (PARTITION BY P<1>) = 1"
+  rule_type_code: "V"
+  validation_action_code: "F"
+  validation_type_code: "U"
+  keep_current_flag: true
+  window_function_flag: true
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-02-07T21:31:00.575299"
+  created_userid: "ajudd@westmonroe.com"
+  update_datetime: "2023-02-07T21:31:00.575299"
+  parameters:
+  - id: 1
+    type: "enrichment"
+    name: "unique_id"
+    source_name: "Group Clone with Rules in Relations - 2 - Source 2"
+channels:
+- output_name: "Group Clone with Rules in Relations - 2 - Separate Group Output"
+  output_source_name: "Group Clone with Rules in Relations - 2 - Group 1 - Source\
+    \ 2"
+  operation_type: "none"
+  output_package_parameters:
+    key_history: false
+    full_output_flag: false
+    custom_parameters: {}
+    allow_output_regeneration: true
+  include_pass_flag: true
+  include_fail_flag: false
+  include_warn_flag: true
+  output_source_columns:
+  - output_column_name: "id"
+    expression: "id"
+    parameter:
+      name: "id"
+      type: "raw"
+      source_name: "Group Clone with Rules in Relations - 2 - Source 2"
+    ipu_weight: 1
+    create_datetime: "2023-02-07T21:31:00.575299"
+    created_userid: "ajudd@westmonroe.com"
+  - output_column_name: "unique_id"
+    expression: "unique_id"
+    parameter:
+      name: "unique_id"
+      type: "enrichment"
+      source_name: "Group Clone with Rules in Relations - 2 - Source 2"
+    ipu_weight: 1
+    create_datetime: "2023-02-07T21:31:00.575299"
+    created_userid: "ajudd@westmonroe.com"
+  - output_column_name: "unique_id_uv_flag"
+    expression: "unique_id_uv_flag"
+    parameter:
+      name: "unique_id_uv_flag"
+      type: "enrichment"
+      source_name: "Group Clone with Rules in Relations - 2 - Source 2"
+    ipu_weight: 1
+    create_datetime: "2023-02-07T21:31:00.575299"
+    created_userid: "ajudd@westmonroe.com"
+  - output_column_name: "value"
+    expression: "value"
+    parameter:
+      name: "value"
+      type: "raw"
+      source_name: "Group Clone with Rules in Relations - 2 - Source 2"
+    ipu_weight: 1
+    create_datetime: "2023-02-07T21:31:00.575299"
+    created_userid: "ajudd@westmonroe.com"
+  ipu_weight: 4
+  active_flag: true
+  created_userid: "ajudd@westmonroe.com"
+  create_datetime: "2023-02-07T21:31:00.575299"

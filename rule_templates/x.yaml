@@ -1,0 +1,12 @@
+---
+name: "x"
+datatype: "int"
+cast_datatype: ""
+attribute_name: "x"
+rule_type_code: "E"
+keep_current_flag: false
+window_function_flag: false
+unique_flag: false
+active_flag: true
+create_datetime: "2022-06-07T21:35:09.171238"
+created_userid: "jswanson@wmp.com"

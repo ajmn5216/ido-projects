@@ -1,0 +1,61 @@
+---
+source_name: "joe xyJoxe Group testingxbb"
+source_description: "x"
+ingestion_parameters:
+  file_mask: "x"
+  delete_file: true
+  mask_parsing: "glob"
+  archive_folder: "archive"
+  source_file_type: "single_file"
+  disable_initiation: false
+parsing_parameters:
+  sep: ","
+  mode: "FAILFAST"
+  quote: "\""
+  escape: "\\"
+  header: true
+  locale: "en-US"
+  encoding: "UTF-8"
+  nanValue: "NaN"
+  multiLine: false
+  nullValue: "empty string"
+  emptyValue: "empty string"
+  maxColumns: 20480
+  inferSchema: false
+  negativeInf: "-Inf"
+  positiveInf: "Inf"
+  enforceSchema: true
+  samplingRatio: 1
+  timestampFormat: "yyyy-MM-dd HH:mm:ss[.SSS][XXX]"
+  maxCharsPerColumn: -1
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  ignoreLeadingWhiteSpace: false
+  lock_schema_new_columns: false
+  ignoreTrailingWhiteSpace: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+file_type: "delimited"
+refresh_type: "full"
+connection_type: "file"
+connection_name: "joe bxxJoxe Group testingxbb"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+parser: "spark-delimited"
+template_name: "joe xy${GROUP}"
+group_name: "Joxe Group testingxbb"
+hub_view_name: "joe_x__group_"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2022-04-08T18:43:04.92719"
+created_userid: "jswanson@wmp.com"
+update_datetime: "2022-04-08T18:49:28.564834"
+updated_userid: "jswanson@wmp.com"

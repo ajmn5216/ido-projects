@@ -1,0 +1,147 @@
+---
+source_name: "Abdur New Loopback Test"
+source_description: "Abdur New Loopback Test"
+ingestion_parameters:
+  file_mask: "test"
+  delete_file: true
+  mask_parsing: "glob"
+  archive_folder: "archive"
+  source_file_type: "single_file"
+  disable_initiation: false
+parsing_parameters:
+  sep: ","
+  mode: "FAILFAST"
+  quote: "\""
+  escape: "\\"
+  header: true
+  locale: "en-US"
+  encoding: "UTF-8"
+  nanValue: "NaN"
+  multiLine: false
+  nullValue: "empty string"
+  emptyValue: "empty string"
+  maxColumns: 20480
+  inferSchema: false
+  negativeInf: "-Inf"
+  positiveInf: "Inf"
+  enforceSchema: true
+  samplingRatio: 1
+  timestampFormat: "yyyy-MM-dd HH:mm:ss[.SSS][XXX]"
+  maxCharsPerColumn: -1
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  ignoreLeadingWhiteSpace: false
+  lock_schema_new_columns: false
+  ignoreTrailingWhiteSpace: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_emails: []
+  ingestion_failure_topics: []
+  ingestion_success_emails: []
+  ingestion_success_topics: []
+  data_processing_failure_emails: []
+  data_processing_failure_topics: []
+  data_processing_success_emails: []
+  data_processing_success_topics: []
+file_type: "delimited"
+refresh_type: "full"
+connection_type: "file"
+connection_name: "Abdur S3 Connection"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+parser: "spark-delimited"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 11
+active_flag: true
+create_datetime: "2023-04-27T21:05:17.104342"
+created_userid: "aakanda@westmonroepartners.com"
+update_datetime: "2023-05-08T19:40:52.233374"
+updated_userid: "aakanda@westmonroepartners.com"
+raw_attributes:
+- raw_attribute_name: "accountnumber"
+  column_normalized: "accountnumber"
+  data_type: "string"
+  version_number: 1
+  column_alias: "accountnumber"
+  unique_flag: false
+  update_datetime: "2023-04-27T21:22:32.882619"
+dependencies:
+- source_name: "Abdur Connection Type Timestamp"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2023-04-27T21:54:31.70754"
+  created_userid: "aakanda@westmonroepartners.com"
+relations:
+- relation_uid: "ce31edee9168b0b5705b3ba66f6393fd"
+  related_source_name: "Abdur Connection Type Timestamp"
+  relation_name: "test"
+  primary_flag: true
+  expression: "[This].accountnumber=[Related].accountnumber"
+  source_cardinality: "M"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1>=P<2>"
+  active_flag: true
+  create_datetime: "2023-04-27T21:54:31.70754"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "accountnumber"
+    source_name: "Abdur New Loopback Test"
+  - id: 2
+    type: "raw"
+    name: "accountnumber"
+    source_name: "Abdur Connection Type Timestamp"
+rules:
+- attribute_name: "test1"
+  name: "Test1"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This].accountnumber"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-27T21:54:09.240807"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "accountnumber"
+    source_name: "Abdur New Loopback Test"
+- attribute_name: "test2billtoaddressid"
+  name: "Test2-billtoaddressid"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "MAX([Abdur Connection Type Timestamp].billtoaddressid)"
+  expression_parsed: "A<1>"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-04-27T21:55:34.046875"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "billtoaddressid"
+    source_name: "Abdur Connection Type Timestamp"
+    relation_uids:
+    - "ce31edee9168b0b5705b3ba66f6393fd"
+    self_relation_container: "Related"
+    aggregation_ids:
+    - 1
+  aggregations:
+  - id: 1
+    expression: "MAX(P<1>)"
+    function: "max"
+    relation_uids:
+    - "ce31edee9168b0b5705b3ba66f6393fd"

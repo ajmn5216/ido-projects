@@ -1,0 +1,10 @@
+---
+name: "a to c"
+related_source_name: "salesorderdetail c - testing 3275"
+expression: "[This].orderqty = [Related].orderqty"
+primary_flag: false
+source_cardinality: "M"
+related_source_cardinality: "M"
+active_flag: true
+create_datetime: "2022-06-06T18:20:53.086925"
+created_userid: "jswanson@wmp.com"

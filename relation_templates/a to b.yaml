@@ -1,0 +1,10 @@
+---
+name: "a to b"
+related_source_template_name: "${GROUP} test 3275 b"
+expression: "[This].linetotal = [Related].linetotal"
+primary_flag: false
+source_cardinality: "M"
+related_source_cardinality: "M"
+active_flag: true
+create_datetime: "2022-06-06T18:20:39.50167"
+created_userid: "jswanson@wmp.com"

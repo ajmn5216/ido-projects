@@ -1,0 +1,62 @@
+---
+source_name: "Abdur Multifile Test"
+source_description: "Abdur Multifile Test"
+ingestion_parameters:
+  file_mask: "abdur/testing_*"
+  delete_file: false
+  mask_parsing: "glob"
+  source_file_type: "multipart_file"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+file_type: "avro"
+refresh_type: "full"
+connection_type: "file"
+connection_name: "Abdur S3 Connection"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+parser: "spark"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 3
+active_flag: true
+create_datetime: "2023-01-09T20:07:47.083022"
+created_userid: "aakanda@westmonroepartners.com"
+raw_attributes:
+- raw_attribute_name: "linetotal"
+  column_normalized: "linetotal"
+  data_type: "decimal"
+  version_number: 1
+  column_alias: "linetotal"
+  unique_flag: false
+  update_datetime: "2023-01-09T21:30:35.709608"
+rules:
+- attribute_name: "test"
+  name: "test"
+  datatype: "decimal"
+  cast_datatype: ""
+  expression: "[This].linetotal"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-01-09T21:34:02.160666"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "linetotal"
+    source_name: "Abdur Multifile Test"

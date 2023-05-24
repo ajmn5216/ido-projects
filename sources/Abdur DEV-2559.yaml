@@ -1,0 +1,128 @@
+---
+source_name: "Abdur DEV-2559"
+source_description: "Abdur DEV-2559 2.5.1 testing"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.CreditCard"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 24
+active_flag: true
+create_datetime: "2022-03-09T19:44:44.059888"
+created_userid: "aakanda@westmonroepartners.com"
+update_datetime: "2022-10-17T20:17:06.747546"
+updated_userid: "aakanda@westmonroepartners.com"
+raw_attributes:
+- raw_attribute_name: "cardtype"
+  column_normalized: "cardtype"
+  raw_metadata:
+    scale: 0
+    precision: 50
+    nullable_flag: false
+  data_type: "string"
+  version_number: 1
+  column_alias: "cardtype"
+  unique_flag: false
+  update_datetime: "2022-03-09T19:45:11.203053"
+- raw_attribute_name: "creditcardid"
+  column_normalized: "creditcardid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "creditcardid"
+  unique_flag: false
+  update_datetime: "2022-03-09T19:45:11.203053"
+rules:
+- attribute_name: "window_function"
+  name: "window function"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "MAX([This].creditcardid)OVER (PARTITION BY [This].cardtype)"
+  expression_parsed: "MAX(P<2>)OVER (PARTITION BY P<1>)"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: true
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-07T19:19:57.882824"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2022-10-17T20:17:06.747546"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "cardtype"
+    source_name: "Abdur DEV-2559"
+  - id: 2
+    type: "raw"
+    name: "creditcardid"
+    source_name: "Abdur DEV-2559"
+- attribute_name: "window_function_creditcardid"
+  name: "Window Function creditcardid"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "MAX([This].creditcardid)OVER (PARTITION BY [This].creditcardid)"
+  expression_parsed: "MAX(P<1>)OVER (PARTITION BY P<1>)"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: true
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-07T19:44:25.428766"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2022-10-17T20:17:06.747546"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "creditcardid"
+    source_name: "Abdur DEV-2559"
+- attribute_name: "window_function_min"
+  name: "Window Function Min"
+  description: "Testing Window Function"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "MIN([This].creditcardid)OVER (PARTITION BY [This].cardtype)"
+  expression_parsed: "MIN(P<2>)OVER (PARTITION BY P<1>)"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: true
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-07T19:38:29.237604"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2022-10-17T20:17:06.747546"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "cardtype"
+    source_name: "Abdur DEV-2559"
+  - id: 2
+    type: "raw"
+    name: "creditcardid"
+    source_name: "Abdur DEV-2559"

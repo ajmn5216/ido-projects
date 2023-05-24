@@ -1,0 +1,62 @@
+---
+source_name: "salesorderdetail c - testing 3275"
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderdetail"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2022-06-06T18:08:10.506955"
+created_userid: "jswanson@wmp.com"
+raw_attributes:
+- raw_attribute_name: "carriertrackingnumber"
+  column_normalized: "carriertrackingnumber"
+  raw_metadata:
+    scale: 0
+    precision: 25
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "carriertrackingnumber"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:08:29.252389"
+- raw_attribute_name: "orderqty"
+  column_normalized: "orderqty"
+  raw_metadata:
+    scale: 0
+    precision: 5
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "orderqty"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:08:29.252389"
+dependencies:
+- source_name: "3275group test 3275 a"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-06-06T18:14:55.156004"
+  created_userid: "jswanson@wmp.com"

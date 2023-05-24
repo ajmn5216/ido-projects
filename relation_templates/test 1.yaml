@@ -1,0 +1,10 @@
+---
+name: "test 1"
+related_source_name: "Abdur Cleanup RefreshType key"
+expression: "[This].carriertrackingnumber=[Related].carriertrackingnumber"
+primary_flag: false
+source_cardinality: "M"
+related_source_cardinality: "M"
+active_flag: true
+create_datetime: "2022-10-04T22:44:26.540799"
+created_userid: "aakanda@westmonroepartners.com"

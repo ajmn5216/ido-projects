@@ -1,0 +1,219 @@
+---
+source_name: "Abdur Refresh Type Full"
+source_description: "Abdur Refresh Type Full"
+ingestion_parameters:
+  file_mask: "FileCSVS3None*"
+  delete_file: false
+  mask_parsing: "glob"
+  source_file_type: "single_file"
+  disable_initiation: false
+parsing_parameters:
+  sep: ","
+  mode: "FAILFAST"
+  quote: "\""
+  escape: "\\"
+  header: true
+  locale: "en-US"
+  encoding: "UTF-8"
+  nanValue: "NaN"
+  multiLine: false
+  nullValue: "empty string"
+  emptyValue: "empty string"
+  maxColumns: 20480
+  inferSchema: false
+  negativeInf: "-Inf"
+  positiveInf: "Inf"
+  enforceSchema: true
+  samplingRatio: 1
+  timestampFormat: "yyyy-MM-dd HH:mm:ss[.SSS][XXX]"
+  maxCharsPerColumn: -1
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  ignoreLeadingWhiteSpace: false
+  lock_schema_new_columns: false
+  ignoreTrailingWhiteSpace: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+file_type: "delimited"
+refresh_type: "full"
+connection_type: "file"
+connection_name: "Abdur S3 Connection"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+parser: "spark-delimited"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 19
+active_flag: true
+create_datetime: "2022-08-29T16:11:54.058086"
+created_userid: "aakanda@westmonroepartners.com"
+update_datetime: "2022-11-04T20:23:38.015"
+updated_userid: "aakanda@westmonroepartners.com"
+raw_attributes:
+- raw_attribute_name: "accountnumber"
+  column_normalized: "accountnumber"
+  data_type: "string"
+  version_number: 1
+  column_alias: "accountnumber"
+  unique_flag: false
+  update_datetime: "2022-08-29T16:12:42.88536"
+- raw_attribute_name: "carriertrackingnumber"
+  column_normalized: "carriertrackingnumber"
+  data_type: "string"
+  version_number: 1
+  column_alias: "carriertrackingnumber"
+  unique_flag: false
+  update_datetime: "2022-08-29T16:12:42.88536"
+- raw_attribute_name: "creditcardid"
+  column_normalized: "creditcardid"
+  data_type: "string"
+  version_number: 1
+  column_alias: "creditcardid"
+  unique_flag: false
+  update_datetime: "2022-08-29T16:12:42.88536"
+dependencies:
+- source_name: "Abdur Cleanup RefreshType key"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-10-27T20:02:56.731016"
+  created_userid: "aakanda@westmonroepartners.com"
+- source_name: "Abdur Connection Type Timestamp"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-10-28T14:11:46.102628"
+  created_userid: "aakanda@westmonroepartners.com"
+relations:
+- relation_uid: "7a51deba3f877774ac15c68cdc268de3"
+  related_source_name: "Abdur Cleanup RefreshType key"
+  relation_name: "Abdur Refresh Type Full"
+  primary_flag: true
+  expression: "[This].carriertrackingnumber=[Related].carriertrackingnumber"
+  source_cardinality: "M"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1>=P<2>"
+  active_flag: true
+  create_datetime: "2022-10-27T20:02:56.731016"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "Abdur Refresh Type Full"
+  - id: 2
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "Abdur Cleanup RefreshType key"
+- relation_uid: "cb144eff4ee5f5c7c2be60f4a5872e05"
+  related_source_name: "Abdur Refresh Type Full"
+  relation_name: "Abdur Refresh Type Full"
+  primary_flag: false
+  expression: "[This].accountnumber=[Related].accountnumber || 'a'"
+  source_cardinality: "M"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1>=P<2> || 'a'"
+  active_flag: true
+  create_datetime: "2022-10-26T15:31:25.604895"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "accountnumber"
+    self_relation_container: "This"
+    source_name: "Abdur Refresh Type Full"
+  - id: 2
+    type: "raw"
+    name: "accountnumber"
+    self_relation_container: "Related"
+    source_name: "Abdur Refresh Type Full"
+rules:
+- attribute_name: "dev_3498"
+  name: "DEV-3498"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "MAX([Abdur Cleanup RefreshType key].orderqty)"
+  expression_parsed: "A<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-10-27T20:50:19.27185"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2022-10-28T14:04:23.864024"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "orderqty"
+    source_name: "Abdur Cleanup RefreshType key"
+    relation_uids:
+    - "7a51deba3f877774ac15c68cdc268de3"
+    self_relation_container: "Related"
+    aggregation_ids:
+    - 1
+  aggregations:
+  - id: 1
+    expression: "MAX(P<1>)"
+    function: "max"
+    relation_uids:
+    - "7a51deba3f877774ac15c68cdc268de3"
+- attribute_name: "dev3498changerule"
+  name: "DEV-3498-changerule"
+  datatype: "decimal"
+  cast_datatype: ""
+  expression: "Min([Abdur Cleanup RefreshType key].linetotal)"
+  expression_parsed: "A<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-10-28T14:06:50.6409"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "linetotal"
+    source_name: "Abdur Cleanup RefreshType key"
+    relation_uids:
+    - "7a51deba3f877774ac15c68cdc268de3"
+    self_relation_container: "Related"
+    aggregation_ids:
+    - 1
+  aggregations:
+  - id: 1
+    expression: "Min(P<1>)"
+    function: "min"
+    relation_uids:
+    - "7a51deba3f877774ac15c68cdc268de3"
+- attribute_name: "dev3498new"
+  name: "DEV-3498new"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This].creditcardid"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-10-28T14:05:33.84597"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "creditcardid"
+    source_name: "Abdur Refresh Type Full"

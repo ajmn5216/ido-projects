@@ -1,0 +1,27 @@
+---
+output_name: "test delta"
+output_type: "table"
+output_package_parameters:
+  table_name: "x"
+  manage_table: true
+  table_schema: "x"
+  create_cci_on_table: false
+  output_source_id_partition: true
+output_description: "x"
+output_sub_type: "delta_lake"
+connection_name: "Delta Lake"
+alert_parameters:
+  output_failure_topics: []
+  output_success_topics: []
+post_output_type: "none"
+columns:
+- position: 2
+  name: " hello bingus"
+  datatype: "boolean"
+  precision: 8
+  scale: 0
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-07-12T16:50:03.986477"
+active_flag: true
+created_userid: "jswanson@wmp.com"
+create_datetime: "2022-07-12T16:49:54.938194"

@@ -1,0 +1,84 @@
+---
+source_name: "SQL Server Query "
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderdetail where 1 = 1"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 6
+active_flag: true
+create_datetime: "2022-04-01T18:09:51.507056"
+created_userid: "jswanson@wmp.com"
+update_datetime: "2022-04-05T15:22:05.801681"
+updated_userid: "jswanson@wmp.com"
+raw_attributes:
+- raw_attribute_name: "carriertrackingnumber"
+  column_normalized: "carriertrackingnumber"
+  raw_metadata:
+    scale: 0
+    precision: 25
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "carriertrackingnumber"
+  unique_flag: false
+  update_datetime: "2022-04-01T18:10:27.538046"
+rules:
+- attribute_name: "b"
+  name: "b"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This].carriertrackingnumber"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-13T15:35:36.028179"
+  created_userid: "jswanson@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "SQL Server Query "
+- attribute_name: "test"
+  name: "test"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This].carriertrackingnumber"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-01T21:22:14.113934"
+  created_userid: "jswanson@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "SQL Server Query "

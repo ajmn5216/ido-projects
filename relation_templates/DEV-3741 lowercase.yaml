@@ -1,0 +1,11 @@
+---
+name: "DEV-3741 lowercase"
+related_source_name: "Abdur Testing DEV-3098"
+description: "DEV-3741 lowercase"
+expression: "[This].unitprice=[Related].unitprice"
+primary_flag: false
+source_cardinality: "M"
+related_source_cardinality: "M"
+active_flag: true
+create_datetime: "2023-02-01T23:05:32.224913"
+created_userid: "aakanda@westmonroepartners.com"

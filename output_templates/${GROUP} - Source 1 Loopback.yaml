@@ -1,0 +1,7 @@
+---
+object_name: "${GROUP} - Source 1 Loopback"
+parameters:
+  view_name: "${GROUP}___loopback"
+create_datetime: "2023-02-07T20:58:10.742436"
+created_userid: "ajudd@westmonroe.com"
+update_datetime: "2023-02-07T20:58:10.742436"

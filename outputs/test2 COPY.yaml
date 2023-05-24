@@ -1,0 +1,13 @@
+---
+output_name: "test2 COPY"
+output_type: "virtual"
+output_package_parameters:
+  view_name: "s3://wmp.test.west/Mock+Project+2020/"
+output_description: "test_graph_render2"
+alert_parameters:
+  output_failure_topics: []
+  output_success_topics: []
+post_output_type: "none"
+active_flag: true
+created_userid: "mscale@westmonroepartners.com"
+create_datetime: "2021-10-21T17:54:56.12316"

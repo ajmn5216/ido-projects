@@ -1,0 +1,111 @@
+---
+source_name: "Abdur Vadim full"
+source_description: "Abdur Vadim full"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderdetail"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+hub_view_name: "abdur_vadim_key"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 3
+active_flag: true
+create_datetime: "2022-10-20T20:24:03.409557"
+created_userid: "aakanda@westmonroepartners.com"
+update_datetime: "2023-01-25T21:53:57.688559"
+updated_userid: "aakanda@westmonroepartners.com"
+raw_attributes:
+- raw_attribute_name: "salesorderid"
+  column_normalized: "salesorderid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "salesorderid"
+  unique_flag: false
+  update_datetime: "2022-10-20T20:24:29.890188"
+dependencies:
+- source_name: "Abdur Connection Type Timestamp"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-10-28T14:47:57.713491"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-01-25T21:53:57.688559"
+  updated_userid: "aakanda@westmonroepartners.com"
+- source_name: "Abdur Key Vadim"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-10-20T20:25:41.716497"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-01-25T21:53:57.688559"
+  updated_userid: "aakanda@westmonroepartners.com"
+relations:
+- relation_uid: "49e9eee5e4479df05d8b137936599726"
+  related_source_name: "Abdur Key Vadim"
+  relation_name: "test"
+  primary_flag: true
+  expression: "[This].salesorderid=[Related].salesorderid"
+  source_cardinality: "M"
+  related_source_cardinality: "1"
+  expression_parsed: "P<1>=P<2>"
+  active_flag: true
+  create_datetime: "2022-10-20T20:25:41.716497"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderid"
+    source_name: "Abdur Vadim full"
+  - id: 2
+    type: "raw"
+    name: "salesorderid"
+    source_name: "Abdur Key Vadim"
+rules:
+- attribute_name: "test"
+  name: "test"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[Abdur Key Vadim].orderqty"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-10-20T20:26:47.310521"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2022-10-20T20:26:54.718294"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "orderqty"
+    source_name: "Abdur Key Vadim"
+    relation_uids:
+    - "49e9eee5e4479df05d8b137936599726"
+    self_relation_container: "Related"

@@ -1,0 +1,46 @@
+---
+source_name: "CustomCasingTest"
+source_description: "CustomCasingTest"
+ingestion_parameters:
+  source_file_type: "single_file"
+  custom_parameters: {}
+  disable_initiation: false
+parsing_parameters:
+  custom_parameters: {}
+  force_case_insensitive: false
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "custom"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+custom_ingest_cluster_configuration_name: "test"
+ipu_rules_weight: 3
+active_flag: true
+create_datetime: "2022-05-17T13:49:18.184041"
+created_userid: "jcrell@wmp.com"
+rules:
+- attribute_name: "dash"
+  name: "dash"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "'\U0001f4a9— -  –   —\U0001f4a9'"
+  expression_parsed: "'\U0001f4a9— -  –   —\U0001f4a9'"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-05-17T13:49:18.184041"
+  created_userid: "jcrell@wmp.com"
+  update_datetime: "2022-05-17T13:49:18.184041"

@@ -1,0 +1,165 @@
+---
+source_name: "Joe special source -> > * &%@(@@* bingus 123"
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderdetail"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+hub_view_name: "joe_special_source_______________"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 12
+active_flag: true
+create_datetime: "2022-04-12T17:27:08.771491"
+created_userid: "jswanson@wmp.com"
+update_datetime: "2022-04-12T17:27:15.23369"
+updated_userid: "jswanson@wmp.com"
+raw_attributes:
+- raw_attribute_name: "modifieddate"
+  column_normalized: "modifieddate"
+  raw_metadata:
+    scale: 3
+    precision: 23
+    nullable_flag: false
+  data_type: "timestamp"
+  version_number: 1
+  column_alias: "modifieddate"
+  unique_flag: false
+  update_datetime: "2022-04-12T17:29:01.545395"
+- raw_attribute_name: "salesorderdetailid"
+  column_normalized: "salesorderdetailid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "salesorderdetailid"
+  unique_flag: false
+  update_datetime: "2022-04-12T17:29:01.545395"
+- raw_attribute_name: "salesorderid"
+  column_normalized: "salesorderid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "salesorderid"
+  unique_flag: false
+  update_datetime: "2022-04-12T17:29:01.545395"
+dependencies:
+- source_name: "joe special source 2 !@#$%^&*<>?\\\\||"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-04-12T17:30:35.942028"
+  created_userid: "jswanson@wmp.com"
+rules:
+- attribute_name: "b12"
+  name: "b"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This]~{special relation B <>!@ -> >>??#@///12#@!$}~[joe special source\
+    \ 2 !@#$%^&*<>?\\\\||].accountnumber"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-12T17:32:39.901454"
+  created_userid: "jswanson@wmp.com"
+  update_datetime: "2022-04-13T19:28:11.811367"
+  updated_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "accountnumber"
+    source_name: "joe special source 2 !@#$%^&*<>?\\\\||"
+    relation_uids:
+    - "368312f8802187bd0838c4bccd054f91"
+    self_relation_container: "Related"
+- attribute_name: "b2"
+  name: "b2"
+  description: "test"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This].b12"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-13T19:28:05.066563"
+  created_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "enrichment"
+    name: "b12"
+    source_name: "Joe special source -> > * &%@(@@* bingus 123"
+- attribute_name: "t"
+  name: "tx"
+  datatype: "timestamp"
+  cast_datatype: ""
+  expression: "[This].modifieddate"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-13T19:10:18.576424"
+  created_userid: "jswanson@wmp.com"
+  update_datetime: "2022-04-13T19:11:04.250271"
+  updated_userid: "jswanson@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "modifieddate"
+    source_name: "Joe special source -> > * &%@(@@* bingus 123"
+- attribute_name: "test1"
+  name: "test1"
+  datatype: "decimal"
+  cast_datatype: ""
+  expression: "[This]~{special primary relation A !@#$%^*&<>?}~[joe special source\
+    \ 2 !@#$%^&*<>?\\\\||].freight"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-12T17:31:59.104078"
+  created_userid: "jswanson@wmp.com"
+  update_datetime: "2022-04-13T19:14:28.667826"
+  updated_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "freight"
+    source_name: "joe special source 2 !@#$%^&*<>?\\\\||"
+    relation_uids:
+    - "000045b1ea48980281d1005e532ed364"
+    self_relation_container: "Related"

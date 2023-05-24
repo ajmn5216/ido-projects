@@ -1,0 +1,17 @@
+---
+output_name: "testspace"
+output_type: "file"
+output_package_parameters:
+  file_name: "bb"
+  single_file: true
+  limit_by_effective_range: false
+output_description: "x"
+output_sub_type: "parquet"
+connection_name: "DEV-3075"
+alert_parameters:
+  output_failure_topics: []
+  output_success_topics: []
+post_output_type: "none"
+active_flag: true
+created_userid: "jswanson@wmp.com"
+create_datetime: "2022-07-12T19:25:56.268653"

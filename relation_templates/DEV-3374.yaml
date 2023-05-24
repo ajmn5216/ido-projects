@@ -1,0 +1,12 @@
+---
+name: "DEV-3374"
+related_source_template_name: "Abdur ${GROUP}"
+expression: "[This].carriertrackingnumber=[Related].carriertrackingnumber"
+primary_flag: false
+source_cardinality: "M"
+related_source_cardinality: "M"
+active_flag: true
+create_datetime: "2022-07-08T00:43:37.11353"
+created_userid: "aakanda@westmonroepartners.com"
+update_datetime: "2022-07-08T01:04:22.915211"
+updated_userid: "aakanda@westmonroepartners.com"

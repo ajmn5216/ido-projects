@@ -1,0 +1,15 @@
+---
+name: "test rule "
+datatype: "int"
+cast_datatype: ""
+attribute_name: "test_rule"
+expression: "[This].orderqty"
+rule_type_code: "E"
+keep_current_flag: false
+window_function_flag: false
+unique_flag: false
+active_flag: true
+create_datetime: "2023-01-31T15:35:04.640164"
+created_userid: "ajudd@westmonroe.com"
+update_datetime: "2023-01-31T15:36:52.457583"
+updated_userid: "ajudd@westmonroe.com"

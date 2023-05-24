@@ -1,0 +1,13 @@
+---
+name: "DEV-3741 Lowercase"
+datatype: "decimal"
+cast_datatype: ""
+attribute_name: "dev3741_lowercase"
+expression: "[This].unitprice"
+rule_type_code: "E"
+keep_current_flag: false
+window_function_flag: false
+unique_flag: false
+active_flag: true
+create_datetime: "2023-02-01T23:03:28.328695"
+created_userid: "aakanda@westmonroepartners.com"

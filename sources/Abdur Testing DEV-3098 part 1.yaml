@@ -1,0 +1,53 @@
+---
+source_name: "Abdur Testing DEV-3098 part 1"
+source_description: "Abdur Testing DEV-3098 part 1"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderdetai"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2022-05-04T22:38:11.454434"
+created_userid: "aakanda@westmonroepartners.com"
+update_datetime: "2022-07-08T21:37:55.220108"
+updated_userid: "aakanda@westmonroepartners.com"
+raw_attributes:
+- raw_attribute_name: "unitprice"
+  column_normalized: "unitprice"
+  raw_metadata:
+    scale: 4
+    precision: 19
+    nullable_flag: false
+  data_type: "decimal"
+  version_number: 1
+  column_alias: "unitprice"
+  unique_flag: false
+  update_datetime: "2022-05-04T22:38:50.700723"
+dependencies:
+- source_name: "Abdur Cleanup RefreshType key"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2023-02-01T23:10:00.615606"
+  created_userid: "aakanda@westmonroepartners.com"

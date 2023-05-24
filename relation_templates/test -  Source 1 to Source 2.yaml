@@ -1,0 +1,10 @@
+---
+name: "test -  Source 1 to Source 2"
+related_source_template_name: "${GROUP} - Source 2"
+expression: "[This].unique_id = [Related].unique_id"
+primary_flag: false
+source_cardinality: "1"
+related_source_cardinality: "1"
+active_flag: true
+create_datetime: "2023-02-07T21:26:39.42367"
+created_userid: "ajudd@westmonroe.com"

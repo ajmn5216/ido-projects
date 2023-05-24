@@ -1,0 +1,125 @@
+---
+source_name: "joe special source 2 !@#$%^&*<>?\\\\||"
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderheader"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters:
+  date_column: []
+  key_columns:
+  - "salesorderid"
+  datetime_format: ""
+  exclude_from_cdc: []
+  get_date_from_file_name: false
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "key"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_bucketing: false
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2022-04-12T17:28:11.093321"
+created_userid: "jswanson@wmp.com"
+raw_attributes:
+- raw_attribute_name: "accountnumber"
+  column_normalized: "accountnumber"
+  raw_metadata:
+    scale: 0
+    precision: 15
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "accountnumber"
+  unique_flag: false
+  update_datetime: "2022-04-12T17:28:31.46651"
+- raw_attribute_name: "freight"
+  column_normalized: "freight"
+  raw_metadata:
+    scale: 4
+    precision: 19
+    nullable_flag: false
+  data_type: "decimal"
+  version_number: 1
+  column_alias: "freight"
+  unique_flag: false
+  update_datetime: "2022-04-12T17:28:31.46651"
+- raw_attribute_name: "salesorderid"
+  column_normalized: "salesorderid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "salesorderid"
+  unique_flag: true
+  update_datetime: "2022-04-12T17:28:31.46651"
+dependencies:
+- source_name: "Joe special source -> > * &%@(@@* bingus 123"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-04-12T17:30:35.942028"
+  created_userid: "jswanson@wmp.com"
+relations:
+- relation_uid: "000045b1ea48980281d1005e532ed364"
+  related_source_name: "Joe special source -> > * &%@(@@* bingus 123"
+  relation_name: "special primary relation A !@#$%^*&<>?"
+  primary_flag: false
+  expression: "[This].salesorderid = [Related].salesorderid"
+  source_cardinality: "1"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1> = P<2>"
+  active_flag: true
+  create_datetime: "2022-04-12T17:30:35.942028"
+  created_userid: "jswanson@wmp.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  updated_userid: "jswanson@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderid"
+    source_name: "joe special source 2 !@#$%^&*<>?\\\\||"
+  - id: 2
+    type: "raw"
+    name: "salesorderid"
+    source_name: "Joe special source -> > * &%@(@@* bingus 123"
+- relation_uid: "368312f8802187bd0838c4bccd054f91"
+  related_source_name: "Joe special source -> > * &%@(@@* bingus 123"
+  relation_name: "special relation B <>!@ -> >>??#@///12#@!$"
+  primary_flag: false
+  expression: "[This].salesorderid = [Related].salesorderdetailid"
+  source_cardinality: "1"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1> = P<2>"
+  active_flag: true
+  create_datetime: "2022-04-12T17:31:24.43392"
+  created_userid: "jswanson@wmp.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  updated_userid: "jswanson@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderid"
+    source_name: "joe special source 2 !@#$%^&*<>?\\\\||"
+  - id: 2
+    type: "raw"
+    name: "salesorderdetailid"
+    source_name: "Joe special source -> > * &%@(@@* bingus 123"

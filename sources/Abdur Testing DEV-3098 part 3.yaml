@@ -1,0 +1,41 @@
+---
+source_name: "Abdur Testing DEV-3098 part 3"
+source_description: "Abdur Testing DEV-3098 part 3"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderdetail"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters:
+  date_column: []
+  key_columns:
+  - "SalesOrderDetailId"
+  datetime_format: ""
+  exclude_from_cdc: []
+  get_date_from_file_name: false
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "key"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_bucketing: false
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2022-05-05T15:25:00.993435"
+created_userid: "aakanda@westmonroepartners.com"
+update_datetime: "2022-05-05T17:35:02.188402"
+updated_userid: "aakanda@westmonroepartners.com"

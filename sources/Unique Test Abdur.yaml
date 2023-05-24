@@ -1,0 +1,61 @@
+---
+source_name: "Unique Test Abdur"
+source_description: "Unique Test Abdur"
+ingestion_parameters:
+  file_mask: "test"
+  delete_file: true
+  mask_parsing: "glob"
+  archive_folder: "archive"
+  source_file_type: "single_file"
+  disable_initiation: false
+parsing_parameters:
+  sep: ","
+  mode: "FAILFAST"
+  quote: "\""
+  escape: "\\"
+  header: true
+  locale: "en-US"
+  encoding: "UTF-8"
+  nanValue: "NaN"
+  multiLine: false
+  nullValue: "empty string"
+  emptyValue: "empty string"
+  maxColumns: 20480
+  inferSchema: false
+  negativeInf: "-Inf"
+  positiveInf: "Inf"
+  enforceSchema: true
+  samplingRatio: 1
+  timestampFormat: "yyyy-MM-dd HH:mm:ss[.SSS][XXX]"
+  maxCharsPerColumn: -1
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  ignoreLeadingWhiteSpace: false
+  lock_schema_new_columns: false
+  ignoreTrailingWhiteSpace: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+file_type: "delimited"
+refresh_type: "full"
+connection_type: "file"
+connection_name: "Abdur S3 Connection"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+parser: "spark-delimited"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2023-01-27T21:29:57.934055"
+created_userid: "aakanda@westmonroepartners.com"
+tokens:
+- name: "Abdur Token"
+  value: "abdurtoken1"
+  create_datetime: "2023-01-27T21:33:44.298291"
+  created_userid: "aakanda@westmonroepartners.com"

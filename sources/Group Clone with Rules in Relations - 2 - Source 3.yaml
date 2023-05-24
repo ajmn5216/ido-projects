@@ -1,0 +1,33 @@
+---
+source_name: "Group Clone with Rules in Relations - 2 - Source 3"
+source_description: "x"
+ingestion_parameters:
+  loopback_scope: "full"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_emails: []
+  ingestion_failure_topics: []
+  ingestion_success_emails: []
+  ingestion_success_topics: []
+  data_processing_failure_emails: []
+  data_processing_failure_topics: []
+  data_processing_success_emails: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "loopback"
+loopback_output_name: "Group Clone with Rules in Relations - 2 - Source 1 Loopback"
+cost_parameters:
+  max_retries: 0
+  disable_profiling: false
+template_name: "${GROUP} - Source 3"
+group_name: "Group Clone with Rules in Relations - 2"
+process_configuration_name: "Default Sparky Configuration"
+active_flag: true
+create_datetime: "2023-02-07T21:31:00.575299"
+created_userid: "ajudd@westmonroe.com"

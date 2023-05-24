@@ -1,0 +1,7 @@
+---
+object_name: "Abdur ${GROUP}"
+parameters:
+  view_name: "${GROUP}AbdurTest"
+create_datetime: "2022-10-25T19:31:32.450449"
+created_userid: "ajudd@westmonroe.com"
+update_datetime: "2022-10-26T14:04:47.791004"

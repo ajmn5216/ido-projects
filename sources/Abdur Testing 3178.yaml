@@ -1,0 +1,213 @@
+---
+source_name: "Abdur Testing 3178"
+source_description: "Testing DEV-3178"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderdetail"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+template_name: "${GROUP} Testing 3178"
+group_name: "Abdur"
+hub_view_name: "testing_dev_3178"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 12
+active_flag: true
+create_datetime: "2022-05-16T20:46:59.939574"
+created_userid: "aakanda@westmonroepartners.com"
+update_datetime: "2022-05-17T21:11:49.935761"
+updated_userid: "aakanda@westmonroepartners.com"
+raw_attributes:
+- raw_attribute_name: "carriertrackingnumber"
+  column_normalized: "carriertrackingnumber"
+  raw_metadata:
+    scale: 0
+    precision: 25
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "carriertrackingnumber"
+  unique_flag: false
+  update_datetime: "2022-05-16T20:47:27.814122"
+- raw_attribute_name: "linetotal"
+  column_normalized: "linetotal"
+  raw_metadata:
+    scale: 6
+    precision: 38
+    nullable_flag: false
+  data_type: "decimal"
+  version_number: 1
+  column_alias: "linetotal"
+  unique_flag: false
+  update_datetime: "2022-05-16T20:47:27.814122"
+- raw_attribute_name: "orderqty"
+  column_normalized: "orderqty"
+  raw_metadata:
+    scale: 0
+    precision: 5
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "orderqty"
+  unique_flag: false
+  update_datetime: "2022-05-16T20:47:27.814122"
+- raw_attribute_name: "productid"
+  column_normalized: "productid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "productid"
+  unique_flag: false
+  update_datetime: "2022-05-16T20:47:27.814122"
+dependencies:
+- source_name: "Abdur Cleanup RefreshType key"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-05-16T21:26:34.000602"
+  created_userid: "aakanda@westmonroepartners.com"
+- source_name: "Abdur DEV-2389 - switching refresh types and resetting CDC-FULL"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-05-16T21:27:43.062239"
+  created_userid: "aakanda@westmonroepartners.com"
+relations:
+- relation_uid: "a80394f97554e7ac41c99eb85814b31c"
+  related_source_name: "Abdur DEV-2389 - switching refresh types and resetting CDC-FULL"
+  relation_name: "test 3"
+  primary_flag: true
+  expression: "[This].linetotal=[Related].linetotal"
+  source_cardinality: "M"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1>=P<2>"
+  active_flag: true
+  create_datetime: "2022-05-16T21:27:43.062239"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "linetotal"
+    source_name: "Abdur Testing 3178"
+  - id: 2
+    type: "raw"
+    name: "linetotal"
+    source_name: "Abdur DEV-2389 - switching refresh types and resetting CDC-FULL"
+- relation_uid: "db50fc6f78f204c318d1d9cd28539c15"
+  related_source_name: "Abdur Cleanup RefreshType key"
+  relation_name: "test 1"
+  primary_flag: false
+  expression: "[This].carriertrackingnumber=[Related].carriertrackingnumber"
+  source_cardinality: "M"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1>=P<2>"
+  active_flag: true
+  create_datetime: "2022-05-16T21:26:34.000602"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "Abdur Testing 3178"
+  - id: 2
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "Abdur Cleanup RefreshType key"
+rules:
+- attribute_name: "kjsfja"
+  name: "kjsfja"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This].productid"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-05-16T21:21:19.778889"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "productid"
+    source_name: "Abdur Testing 3178"
+- attribute_name: "test"
+  name: "test"
+  datatype: "boolean"
+  cast_datatype: ""
+  expression: "[This].orderqty > 10"
+  expression_parsed: "P<1> > 10"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-05-16T20:53:26.129203"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "orderqty"
+    source_name: "Abdur Testing 3178"
+- attribute_name: "test2"
+  name: "test2"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This].carriertrackingnumber"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-05-16T20:56:01.333101"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "Abdur Testing 3178"
+- attribute_name: "test_3"
+  name: "test 3"
+  datatype: "boolean"
+  cast_datatype: ""
+  expression: "[This].orderqty < 10"
+  expression_parsed: "P<1> < 10"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-05-16T21:20:57.396918"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "orderqty"
+    source_name: "Abdur Testing 3178"

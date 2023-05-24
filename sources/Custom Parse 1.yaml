@@ -1,0 +1,42 @@
+---
+source_name: "Custom Parse 1"
+source_description: "x"
+ingestion_parameters:
+  file_mask: "parse1/Divvy_Station*.csv"
+  delete_file: true
+  mask_parsing: "glob"
+  archive_folder: "archive"
+  source_file_type: "single_file"
+  disable_initiation: true
+parsing_parameters:
+  notebook_path: "/Shared/CustomParsing1"
+  custom_parameters: {}
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+file_type: "delimited"
+refresh_type: "full"
+connection_type: "file"
+connection_name: "S3 ingest"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  cluster size: 2
+  disable_profiling: false
+  max_parallel_clusters: 1
+  max_cluster_launch_wait: 300
+  max_heartbeat_wait_time: 8
+parser: "custom"
+process_configuration_name: "Default Sparky Configuration"
+custom_parse_cluster_configuration_name: "Migrated Custom Parse Notebook /Shared/CustomParsing1"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2021-12-15T15:07:44.270781"
+created_userid: "jswanson@wmp.com"

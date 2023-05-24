@@ -1,0 +1,52 @@
+---
+source_name: "soh big"
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "SELECT\nrn*100000 + [SalesOrderID]  [SalesOrderID]\n      ,[RevisionNumber]\n\
+    \      ,[OrderDate]\n      ,[DueDate]\n      ,[ShipDate]\n      ,[Status]\n  \
+    \    ,[OnlineOrderFlag]\n      ,[SalesOrderNumber]\n      ,[PurchaseOrderNumber]\n\
+    \      ,[AccountNumber]\n      ,[CustomerID]\n      ,[SalesPersonID]\n      ,[TerritoryID]\n\
+    \      ,[BillToAddressID]\n      ,[ShipToAddressID]\n      ,[ShipMethodID]\n \
+    \     ,[CreditCardID]\n      ,[CreditCardApprovalCode]\n      ,[CurrencyRateID]\n\
+    \      ,[SubTotal]\n      ,[TaxAmt]\n      ,[Freight]\n      ,[TotalDue]\n   \
+    \   ,CASE WHEN dbo.rnd_change(15) = 1 THEN CURRENT_TIMESTAMP ELSE [Comment]  END\
+    \ [Comment]\n      ,[rowguid]\n      ,[ModifiedDate]\n  FROM [Sales].[SalesOrderHeader]\n\
+    \   CROSS JOIN (select top(CAST(RAND()*100 as int)) row_number() over(order by\
+    \ object_id) - 1 as rn from sys.columns) j"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters:
+  date_column: []
+  key_columns:
+  - "salesorderid"
+  datetime_format: ""
+  exclude_from_cdc: []
+  get_date_from_file_name: false
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "key"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  cluster size: 2
+  disable_bucketing: false
+  disable_profiling: false
+  max_parallel_clusters: 1
+  max_cluster_launch_wait: 300
+  max_heartbeat_wait_time: 8
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2021-12-14T17:01:50.703987"
+created_userid: "jswanson@wmp.com"

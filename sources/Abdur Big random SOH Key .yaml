@@ -1,0 +1,160 @@
+---
+source_name: "Abdur Big random SOH Key "
+source_description: "Abdur Big random SOH Key "
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "SELECT\nrn*100000 + [SalesOrderID]  [SalesOrderID]\n      ,[RevisionNumber]\n\
+    \      ,[OrderDate]\n      ,[DueDate]\n      ,[ShipDate]\n      ,[Status]\n  \
+    \    ,[OnlineOrderFlag]\n      ,[SalesOrderNumber]\n      ,[PurchaseOrderNumber]\n\
+    \      ,[AccountNumber]\n      ,[CustomerID]\n      ,[SalesPersonID]\n      ,[TerritoryID]\n\
+    \      ,[BillToAddressID]\n      ,[ShipToAddressID]\n      ,[ShipMethodID]\n \
+    \     ,[CreditCardID]\n      ,[CreditCardApprovalCode]\n      ,[CurrencyRateID]\n\
+    \      ,[SubTotal]\n      ,[TaxAmt]\n      ,[Freight]\n      ,[TotalDue]\n   \
+    \   ,CASE WHEN dbo.rnd_change(5) = 1 THEN CURRENT_TIMESTAMP ELSE [Comment]  END\
+    \ [Comment]\n      ,[rowguid]\n      ,[ModifiedDate]\n  FROM [Sales].[SalesOrderHeader]\n\
+    \   CROSS JOIN (select top(CAST(RAND()*200 as int) + 1) row_number() over(order\
+    \ by object_id) + CAST(RAND()*100 as int) as rn from sys.columns) j"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: true
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters:
+  date_column:
+  - "ModifiedDate"
+  key_columns:
+  - "salesorderid"
+  datetime_format: ""
+  exclude_from_cdc: []
+  get_date_from_file_name: false
+alert_parameters:
+  ingestion_failure_emails: []
+  ingestion_failure_topics: []
+  ingestion_success_emails: []
+  ingestion_success_topics: []
+  data_processing_failure_emails: []
+  data_processing_failure_topics: []
+  data_processing_success_emails: []
+  data_processing_success_topics: []
+refresh_type: "key"
+connection_type: "table"
+connection_name: "Abdur AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 0
+  disable_bucketing: false
+  disable_profiling: true
+schedule_name: "Every minute"
+process_configuration_name: "Abdur Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 11
+active_flag: true
+create_datetime: "2023-03-14T21:06:23.517825"
+created_userid: "aakanda@westmonroepartners.com"
+update_datetime: "2023-03-15T00:14:09.453902"
+updated_userid: "aakanda@westmonroepartners.com"
+raw_attributes:
+- raw_attribute_name: "accountnumber"
+  column_normalized: "accountnumber"
+  raw_metadata:
+    scale: 0
+    precision: 15
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "accountnumber"
+  unique_flag: false
+  update_datetime: "2023-03-14T21:13:18.508542"
+- raw_attribute_name: "salesorderid"
+  column_normalized: "salesorderid"
+  raw_metadata:
+    scale: 0
+    precision: 19
+    nullable_flag: true
+  data_type: "long"
+  version_number: 1
+  column_alias: "salesorderid"
+  unique_flag: true
+  update_datetime: "2023-03-14T21:13:18.508542"
+dependencies:
+- source_name: "Abdur Cleanup RefreshType key"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2023-03-16T21:30:15.32287"
+  created_userid: "aakanda@westmonroepartners.com"
+relations:
+- relation_uid: "f36cb6ddd9359c3847900fee12739193"
+  related_source_name: "Abdur Cleanup RefreshType key"
+  relation_name: "Test"
+  primary_flag: true
+  expression: "[This].salesorderid=[Related].salesorderid"
+  source_cardinality: "1"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1>=P<2>"
+  active_flag: true
+  create_datetime: "2023-03-16T21:30:15.32287"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderid"
+    source_name: "Abdur Big random SOH Key "
+  - id: 2
+    type: "raw"
+    name: "salesorderid"
+    source_name: "Abdur Cleanup RefreshType key"
+rules:
+- attribute_name: "adding_self_rule_2"
+  name: "Adding Self_Rule2"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This].accountnumber"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-03-16T21:30:58.675209"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2023-03-20T02:38:48.019703"
+  updated_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "accountnumber"
+    source_name: "Abdur Big random SOH Key "
+- attribute_name: "add_relation_rule"
+  name: "Add Relation Rule"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "MAX([Abdur Cleanup RefreshType key].carriertrackingnumber)"
+  expression_parsed: "A<1>"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-03-16T21:31:51.915022"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "Abdur Cleanup RefreshType key"
+    relation_uids:
+    - "f36cb6ddd9359c3847900fee12739193"
+    self_relation_container: "Related"
+    aggregation_ids:
+    - 1
+  aggregations:
+  - id: 1
+    expression: "MAX(P<1>)"
+    function: "max"
+    relation_uids:
+    - "f36cb6ddd9359c3847900fee12739193"

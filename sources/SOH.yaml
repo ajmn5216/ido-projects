@@ -1,0 +1,134 @@
+---
+source_name: "SOH"
+source_description: "h"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderheadercopy"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters:
+  date_column: []
+  key_columns:
+  - "salesorderid"
+  datetime_format: ""
+  exclude_from_cdc: []
+  get_date_from_file_name: false
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "key"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_bucketing: false
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 16
+active_flag: true
+create_datetime: "2021-10-29T17:43:23.408136"
+created_userid: "vorlov@wmp.com"
+update_datetime: "2023-02-01T22:30:10.460073"
+updated_userid: "vorlov@wmp.com"
+raw_attributes:
+- raw_attribute_name: "salesorderid"
+  column_normalized: "salesorderid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "salesorderid"
+  unique_flag: true
+  update_datetime: "2021-12-16T23:33:15.178056"
+dependencies:
+- source_name: "SOD FULL"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2021-10-29T17:45:15.540621"
+  created_userid: "vorlov@wmp.com"
+- source_name: "sod none"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-04-08T18:37:08.580656"
+  created_userid: "jswanson@wmp.com"
+relations:
+- relation_uid: "09eda70686b5589fb5336379739d3e3a"
+  related_source_name: "SOD FULL"
+  relation_name: "sod-soh"
+  primary_flag: true
+  expression: "[This].salesorderid = [Related].salesorderid"
+  source_cardinality: "1"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1> = P<2>"
+  active_flag: true
+  create_datetime: "2021-10-29T17:45:15.540621"
+  created_userid: "vorlov@wmp.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "salesorderid"
+    source_name: "SOH"
+  - id: 2
+    type: "raw"
+    name: "salesorderid"
+    source_name: "SOD FULL"
+rules:
+- attribute_name: "t"
+  name: "t"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "'xyz'\n|| 'is' || 'REPAOIJFPOAIJFPOIAEFPOIAEFPOIAEFJPOIAEFJPOAIEFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJAPOEFIJAPOEIFJAPOEIFJAEPOIFJAEPOIFJAEPOIFJAEPOIFJAEPOIFJAEIFJAIEFJPOAIEFJPAOIEFJPAOEINFPOAIENPAOIEFNPOANEIFNAEPOIFNAEPOIFAEPIFNAIFNAEPIFNMEPOFINPOIFNAEPOFINAEPOFNAEPOFINAEPFIAENFPOAENFPOAEINPAEOIFNPAOJGBIS{OIGBUP_(&*)(*&^#$Y%(*WYUTFRPOIHJEPFOQ#U%)(#*$%UTWPROGIJSD:VLKSANGVAERFG'"
+  expression_parsed: "'xyz'\n|| 'is' || 'REPAOIJFPOAIJFPOIAEFPOIAEFPOIAEFJPOIAEFJPOAIEFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJAPOEFIJAPOEIFJAPOEIFJAEPOIFJAEPOIFJAEPOIFJAEPOIFJAEPOIFJAEIFJAIEFJPOAIEFJPAOIEFJPAOEINFPOAIENPAOIEFNPOANEIFNAEPOIFNAEPOIFAEPIFNAIFNAEPIFNMEPOFINPOIFNAEPOFINAEPOFNAEPOFINAEPFIAENFPOAENFPOAEINPAEOIFNPAOJGBIS{OIGBUP_(&*)(*&^#$Y%(*WYUTFRPOIHJEPFOQ#U%)(#*$%UTWPROGIJSD:VLKSANGVAERFG'"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-01-31T16:51:52.295517"
+  created_userid: "vorlov@wmp.com"
+- attribute_name: "test_sum_rename_again"
+  name: "test sum rename again"
+  datatype: "long"
+  cast_datatype: ""
+  expression: "SUM([SOD FULL].id_long) + 10"
+  expression_parsed: "A<1> + 10"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2021-10-29T17:46:04.650166"
+  created_userid: "vorlov@wmp.com"
+  update_datetime: "2023-02-14T17:43:10.944326"
+  updated_userid: "mkosovec@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "enrichment"
+    name: "id_long"
+    source_name: "SOD FULL"
+    relation_uids:
+    - "09eda70686b5589fb5336379739d3e3a"
+    self_relation_container: "Related"
+    aggregation_ids:
+    - 1
+  aggregations:
+  - id: 1
+    expression: "SUM(P<1>)"
+    function: "sum"
+    relation_uids:
+    - "09eda70686b5589fb5336379739d3e3a"

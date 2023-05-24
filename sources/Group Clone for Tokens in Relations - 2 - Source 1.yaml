@@ -1,0 +1,94 @@
+---
+source_name: "Group Clone for Tokens in Relations - 2 - Source 1"
+source_description: "source for testing clones"
+ingestion_parameters:
+  file_mask: "inbox/test/ajtest.csv"
+  delete_file: false
+  mask_parsing: "glob"
+  source_file_type: "single_file"
+  disable_initiation: false
+parsing_parameters:
+  sep: ","
+  mode: "FAILFAST"
+  quote: "\""
+  escape: "\\"
+  header: true
+  locale: "en-US"
+  encoding: "UTF-8"
+  nanValue: "NaN"
+  multiLine: false
+  nullValue: "empty string"
+  emptyValue: "empty string"
+  maxColumns: 20480
+  inferSchema: false
+  negativeInf: "-Inf"
+  positiveInf: "Inf"
+  enforceSchema: true
+  samplingRatio: 1
+  timestampFormat: "yyyy-MM-dd HH:mm:ss[.SSS][XXX]"
+  maxCharsPerColumn: -1
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  ignoreLeadingWhiteSpace: false
+  lock_schema_new_columns: false
+  ignoreTrailingWhiteSpace: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters:
+  date_column: []
+  key_columns:
+  - "id"
+  datetime_format: ""
+  exclude_from_cdc: []
+  get_date_from_file_name: false
+alert_parameters:
+  ingestion_failure_emails: []
+  ingestion_failure_topics: []
+  ingestion_success_emails: []
+  ingestion_success_topics: []
+  data_processing_failure_emails: []
+  data_processing_failure_topics: []
+  data_processing_success_emails: []
+  data_processing_success_topics: []
+file_type: "delimited"
+refresh_type: "key"
+connection_type: "file"
+connection_name: "Group Clone for Tokens in Relations - 2 - Clone Connection"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 0
+  disable_bucketing: false
+  disable_profiling: false
+template_name: "${GROUP} - Source 1"
+group_name: "Group Clone for Tokens in Relations - 2"
+process_configuration_name: "Default Sparky Configuration"
+active_flag: true
+create_datetime: "2023-02-07T21:34:00.562927"
+created_userid: "ajudd@westmonroe.com"
+raw_attributes:
+- raw_attribute_name: "id"
+  column_normalized: "id"
+  data_type: "string"
+  version_number: 1
+  column_alias: "id"
+  unique_flag: true
+  update_datetime: "2023-02-07T21:34:00.562927"
+- raw_attribute_name: "value"
+  column_normalized: "value"
+  data_type: "string"
+  version_number: 1
+  column_alias: "value"
+  unique_flag: false
+  update_datetime: "2023-02-07T21:34:00.562927"
+dependencies:
+- source_name: "Group Clone for Tokens in Relations - 2 - Source 2"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2023-02-07T21:34:00.562927"
+  created_userid: "ajudd@westmonroe.com"
+- source_name: "Group Clone for Tokens in Relations - 2 - Source 3"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2023-02-07T21:34:00.562927"
+  created_userid: "ajudd@westmonroe.com"

@@ -1,0 +1,203 @@
+---
+source_name: "AWJ Test"
+source_description: "Test source for hammer"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "SELECT * FROM Sales.SalesOrderDetail"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters:
+  range_column:
+  - "salesorderdetailid"
+alert_parameters:
+  ingestion_failure_emails:
+  - "juddx060@umn.edu"
+  ingestion_failure_topics: []
+  ingestion_success_emails:
+  - "juddx060@umn.edu"
+  ingestion_success_topics: []
+  data_processing_failure_emails:
+  - "juddx060@umn.edu"
+  data_processing_failure_topics: []
+  data_processing_success_emails:
+  - "juddx060@umn.edu"
+  data_processing_success_topics: []
+refresh_type: "sequence"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 30
+active_flag: true
+create_datetime: "2022-04-13T15:24:22.656782"
+created_userid: "ajudd@westmonroe.com"
+update_datetime: "2023-02-08T21:50:51.450973"
+updated_userid: "ajudd@westmonroe.com"
+raw_attributes:
+- raw_attribute_name: "carriertrackingnumber"
+  column_normalized: "carriertrackingnumber"
+  raw_metadata:
+    scale: 0
+    precision: 25
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "carriertrackingnumber"
+  unique_flag: false
+  update_datetime: "2022-04-13T15:25:05.044569"
+- raw_attribute_name: "orderqty"
+  column_normalized: "orderqty"
+  raw_metadata:
+    scale: 0
+    precision: 5
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "orderqty"
+  unique_flag: false
+  update_datetime: "2022-04-13T15:25:05.044569"
+dependencies:
+- source_name: "abcdCrell Update"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-06-08T15:58:18.86378"
+  created_userid: "jcrell@wmp.com"
+relations:
+- relation_uid: "27658e35efcb69446de7e9c74e0dba37"
+  related_source_name: "abcdCrell Update"
+  relation_name: "test"
+  primary_flag: true
+  expression: "[This].carriertrackingnumber = [Related].s_record_status_code"
+  source_cardinality: "M"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1> = P<2>"
+  active_flag: true
+  create_datetime: "2022-06-08T15:58:18.86378"
+  created_userid: "jcrell@wmp.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+rules:
+- attribute_name: "long_rule"
+  name: "long rule"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This].carriertrackingnumber \n|| 'is' || 'REPAOIJFPOAIJFPOIAEFPOIAEFPOIAEFJPOIAEFJPOAIEFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJAPOEFIJAPOEIFJAPOEIFJAEPOIFJAEPOIFJAEPOIFJAEPOIFJAEPOIFJAEIFJAIEFJPOAIEFJPAOIEFJPAOEINFPOAIENPAOIEFNPOANEIFNAEPOIFNAEPOIFAEPIFNAIFNAEPIFNMEPOFINPOIFNAEPOFINAEPOFNAEPOFINAEPFIAENFPOAENFPOAEINPAEOIFNPAOJGBIS{OIGBUP_(&*)(*&^#$Y%(*WYUTFRPOIHJEPFOQ#U%)(#*$%UTWPROGIJSD:VLKSANGVAERFG'"
+  expression_parsed: "P<1> \n|| 'is' || 'REPAOIJFPOAIJFPOIAEFPOIAEFPOIAEFJPOIAEFJPOAIEFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJAPOEFIJAPOEIFJAPOEIFJAEPOIFJAEPOIFJAEPOIFJAEPOIFJAEPOIFJAEIFJAIEFJPOAIEFJPAOIEFJPAOEINFPOAIENPAOIEFNPOANEIFNAEPOIFNAEPOIFAEPIFNAIFNAEPIFNMEPOFINPOIFNAEPOFINAEPOFNAEPOFINAEPFIAENFPOAENFPOAEINPAEOIFNPAOJGBIS{OIGBUP_(&*)(*&^#$Y%(*WYUTFRPOIHJEPFOQ#U%)(#*$%UTWPROGIJSD:VLKSANGVAERFG'"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-08T15:57:26.538256"
+  created_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "AWJ Test"
+- attribute_name: "order_qty_over_1"
+  name: "Order qty over 1"
+  description: "testing"
+  datatype: "boolean"
+  cast_datatype: ""
+  expression: "[This].orderqty > 1"
+  expression_parsed: "P<1> > 1"
+  rule_type_code: "E"
+  validation_action_code: "W"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-13T15:39:25.169387"
+  created_userid: "ajudd@westmonroe.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "orderqty"
+    source_name: "AWJ Test"
+- attribute_name: "related"
+  name: "related"
+  datatype: "long"
+  cast_datatype: ""
+  expression: "SUM([abcdCrell Update].b)"
+  expression_parsed: "A<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-08T15:58:36.030437"
+  created_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "b"
+    source_name: "abcdCrell Update"
+    relation_uids:
+    - "27658e35efcb69446de7e9c74e0dba37"
+    self_relation_container: "Related"
+    aggregation_ids:
+    - 1
+  aggregations:
+  - id: 1
+    expression: "SUM(P<1>)"
+    function: "sum"
+    relation_uids:
+    - "27658e35efcb69446de7e9c74e0dba37"
+- attribute_name: "related_enriched"
+  name: "related enriched"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "first([abcdCrell Update].test)"
+  expression_parsed: "A<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-06-08T16:00:29.517696"
+  created_userid: "jcrell@wmp.com"
+  parameters:
+  - id: 1
+    type: "enrichment"
+    name: "test"
+    source_name: "abcdCrell Update"
+    relation_uids:
+    - "27658e35efcb69446de7e9c74e0dba37"
+    self_relation_container: "Related"
+    aggregation_ids:
+    - 1
+  aggregations:
+  - id: 1
+    expression: "first(P<1>)"
+    function: "first"
+    relation_uids:
+    - "27658e35efcb69446de7e9c74e0dba37"
+- attribute_name: "test_rule_"
+  name: "test rule "
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This].orderqty"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-01-31T15:34:34.306783"
+  created_userid: "ajudd@westmonroe.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "orderqty"
+    source_name: "AWJ Test"

@@ -1,0 +1,10 @@
+---
+name: "test2"
+related_source_name: "Abdur Testing DEV-3098"
+expression: "[This].linetotal=[Related].linetotal"
+primary_flag: false
+source_cardinality: "M"
+related_source_cardinality: "M"
+active_flag: true
+create_datetime: "2022-06-09T16:08:37.920496"
+created_userid: "aakanda@westmonroepartners.com"

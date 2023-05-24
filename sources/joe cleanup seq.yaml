@@ -1,0 +1,129 @@
+---
+source_name: "joe cleanup seq"
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderdetail"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters:
+  range_column:
+  - "salesorderdetailid"
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "sequence"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 14
+active_flag: true
+create_datetime: "2022-03-24T16:50:15.044625"
+created_userid: "jswanson@wmp.com"
+raw_attributes:
+- raw_attribute_name: "carriertrackingnumber"
+  column_normalized: "carriertrackingnumber"
+  raw_metadata:
+    scale: 0
+    precision: 25
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "carriertrackingnumber"
+  unique_flag: false
+  update_datetime: "2022-03-24T16:51:02.465737"
+- raw_attribute_name: "orderqty"
+  column_normalized: "orderqty"
+  raw_metadata:
+    scale: 0
+    precision: 5
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "orderqty"
+  unique_flag: false
+  update_datetime: "2022-03-24T16:51:02.465737"
+- raw_attribute_name: "productid"
+  column_normalized: "productid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "productid"
+  unique_flag: false
+  update_datetime: "2022-03-24T16:51:02.465737"
+rules:
+- attribute_name: "t"
+  name: "t"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This].carriertrackingnumber"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-03-24T16:55:35.306476"
+  created_userid: "jswanson@wmp.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "carriertrackingnumber"
+    source_name: "joe cleanup seq"
+- attribute_name: "window_function_"
+  name: "window function "
+  description: "DEV-3113"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "MAX([This].orderqty)OVER (PARTITION BY [This].productid)"
+  expression_parsed: "MAX(P<2>)OVER (PARTITION BY P<1>)"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: true
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-07T20:56:25.080834"
+  created_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2022-06-03T00:18:34.535323"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "productid"
+    source_name: "joe cleanup seq"
+  - id: 2
+    type: "raw"
+    name: "orderqty"
+    source_name: "joe cleanup seq"
+- attribute_name: "window_function_test"
+  name: "window function test"
+  datatype: "int"
+  cast_datatype: ""
+  expression: "[This].window_function_"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: true
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2022-04-07T20:56:49.17099"
+  created_userid: "aakanda@westmonroepartners.com"
+  parameters:
+  - id: 1
+    type: "enrichment"
+    name: "window_function_"
+    source_name: "joe cleanup seq"

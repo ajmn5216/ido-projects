@@ -1,0 +1,116 @@
+---
+source_name: "Group Clone for Tokens in Relations - 1 - Source 2"
+source_description: "source for testing clones"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from test.hub_8606"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters:
+  date_column: []
+  key_columns:
+  - "id"
+  datetime_format: ""
+  exclude_from_cdc: []
+  get_date_from_file_name: false
+alert_parameters:
+  ingestion_failure_emails: []
+  ingestion_failure_topics: []
+  ingestion_success_emails: []
+  ingestion_success_topics: []
+  data_processing_failure_emails: []
+  data_processing_failure_topics: []
+  data_processing_success_emails: []
+  data_processing_success_topics: []
+refresh_type: "key"
+connection_type: "table"
+connection_name: "Hive"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_bucketing: false
+  disable_profiling: false
+template_name: "${GROUP} - Source 2"
+group_name: "Group Clone for Tokens in Relations - 1"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+ipu_rules_weight: 3
+active_flag: true
+create_datetime: "2023-02-07T20:41:30.574332"
+created_userid: "ajudd@westmonroe.com"
+update_datetime: "2023-02-07T21:12:09.153042"
+updated_userid: "ajudd@westmonroe.com"
+raw_attributes:
+- raw_attribute_name: "id"
+  column_normalized: "id"
+  data_type: "string"
+  version_number: 1
+  column_alias: "id"
+  unique_flag: true
+  update_datetime: "2023-02-07T20:41:30.574332"
+dependencies:
+- source_name: "Group Clone for Tokens in Relations - 1 - Source 1"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2023-02-07T20:41:30.574332"
+  created_userid: "ajudd@westmonroe.com"
+relations:
+- relation_uid: "f6191a868e666ade61f34d253065f61f"
+  related_source_name: "Group Clone for Tokens in Relations - 1 - Source 1"
+  relation_name: "Source to Source 2 v2"
+  relation_template_name: "Source to Source 2 v2"
+  primary_flag: false
+  expression: "[This].id=[Related].id"
+  source_cardinality: "1"
+  related_source_cardinality: "1"
+  expression_parsed: "P<1>=P<2>"
+  active_flag: true
+  create_datetime: "2023-02-07T20:41:30.574332"
+  created_userid: "ajudd@westmonroe.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  updated_userid: "ajudd@westmonroe.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "id"
+    source_name: "Group Clone for Tokens in Relations - 1 - Source 2"
+  - id: 2
+    type: "raw"
+    name: "id"
+    source_name: "Group Clone for Tokens in Relations - 1 - Source 1"
+rules:
+- attribute_name: "rule_using_token_relation"
+  rule_template_name: "rule using token relation"
+  name: "rule using token relation"
+  datatype: "string"
+  cast_datatype: ""
+  expression: "[This]~{Source to Source 2 v2}~[Group Clone for Tokens in Relations\
+    \ - 1 - Source 1].value"
+  expression_parsed: "P<1>"
+  rule_type_code: "E"
+  keep_current_flag: false
+  window_function_flag: false
+  unique_flag: false
+  active_flag: true
+  create_datetime: "2023-02-07T21:20:59.215026"
+  created_userid: "ajudd@westmonroe.com"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "value"
+    source_name: "Group Clone for Tokens in Relations - 1 - Source 1"
+    relation_uids:
+    - "f6191a868e666ade61f34d253065f61f"
+    self_relation_container: "Related"
+tokens:
+- name: "RefToken"
+  value: "id"
+  create_datetime: "2023-02-07T21:03:58.44798"
+  created_userid: "ajudd@westmonroe.com"

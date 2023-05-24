@@ -1,0 +1,12 @@
+---
+name: "Dev3274"
+related_source_name: "Abdur Testing DEV-3098"
+expression: "[This].salesorderid=[Related].salesorderid"
+primary_flag: false
+source_cardinality: "M"
+related_source_cardinality: "M"
+active_flag: true
+create_datetime: "2022-06-07T20:57:51.232034"
+created_userid: "aakanda@westmonroepartners.com"
+update_datetime: "2022-06-07T20:58:03.971906"
+updated_userid: "aakanda@westmonroepartners.com"

@@ -1,0 +1,617 @@
+---
+source_name: "salesorderheader a 3278"
+source_description: "x"
+ingestion_parameters:
+  fetch_size: 5000
+  source_query: "select * from sales.salesorderheader"
+  source_file_type: "single_file"
+  trim_string_data: "no_trim"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+refresh_type: "full"
+connection_type: "table"
+connection_name: "AdventureWorks 2019"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2022-06-06T18:27:24.671881"
+created_userid: "jswanson@wmp.com"
+raw_attributes:
+- raw_attribute_name: "accountnumber"
+  column_normalized: "accountnumber"
+  raw_metadata:
+    scale: 0
+    precision: 15
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "accountnumber"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "billtoaddressid"
+  column_normalized: "billtoaddressid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "billtoaddressid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "comment"
+  column_normalized: "comment"
+  raw_metadata:
+    scale: 0
+    precision: 128
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "comment"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "creditcardapprovalcode"
+  column_normalized: "creditcardapprovalcode"
+  raw_metadata:
+    scale: 0
+    precision: 15
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "creditcardapprovalcode"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "creditcardid"
+  column_normalized: "creditcardid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: true
+  data_type: "int"
+  version_number: 1
+  column_alias: "creditcardid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "currencyrateid"
+  column_normalized: "currencyrateid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: true
+  data_type: "int"
+  version_number: 1
+  column_alias: "currencyrateid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "customerid"
+  column_normalized: "customerid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "customerid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "duedate"
+  column_normalized: "duedate"
+  raw_metadata:
+    scale: 3
+    precision: 23
+    nullable_flag: false
+  data_type: "timestamp"
+  version_number: 1
+  column_alias: "duedate"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "freight"
+  column_normalized: "freight"
+  raw_metadata:
+    scale: 4
+    precision: 19
+    nullable_flag: false
+  data_type: "decimal"
+  version_number: 1
+  column_alias: "freight"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "modifieddate"
+  column_normalized: "modifieddate"
+  raw_metadata:
+    scale: 3
+    precision: 23
+    nullable_flag: false
+  data_type: "timestamp"
+  version_number: 1
+  column_alias: "modifieddate"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "onlineorderflag"
+  column_normalized: "onlineorderflag"
+  raw_metadata:
+    scale: 0
+    precision: 1
+    nullable_flag: false
+  data_type: "boolean"
+  version_number: 1
+  column_alias: "onlineorderflag"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "orderdate"
+  column_normalized: "orderdate"
+  raw_metadata:
+    scale: 3
+    precision: 23
+    nullable_flag: false
+  data_type: "timestamp"
+  version_number: 1
+  column_alias: "orderdate"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "purchaseordernumber"
+  column_normalized: "purchaseordernumber"
+  raw_metadata:
+    scale: 0
+    precision: 25
+    nullable_flag: true
+  data_type: "string"
+  version_number: 1
+  column_alias: "purchaseordernumber"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "revisionnumber"
+  column_normalized: "revisionnumber"
+  raw_metadata:
+    scale: 0
+    precision: 3
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "revisionnumber"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "rowguid"
+  column_normalized: "rowguid"
+  raw_metadata:
+    scale: 0
+    precision: 36
+    nullable_flag: false
+  data_type: "string"
+  version_number: 1
+  column_alias: "rowguid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "salesorderid"
+  column_normalized: "salesorderid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "salesorderid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "salesordernumber"
+  column_normalized: "salesordernumber"
+  raw_metadata:
+    scale: 0
+    precision: 25
+    nullable_flag: false
+  data_type: "string"
+  version_number: 1
+  column_alias: "salesordernumber"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "salespersonid"
+  column_normalized: "salespersonid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: true
+  data_type: "int"
+  version_number: 1
+  column_alias: "salespersonid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "shipdate"
+  column_normalized: "shipdate"
+  raw_metadata:
+    scale: 3
+    precision: 23
+    nullable_flag: true
+  data_type: "timestamp"
+  version_number: 1
+  column_alias: "shipdate"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "shipmethodid"
+  column_normalized: "shipmethodid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "shipmethodid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "shiptoaddressid"
+  column_normalized: "shiptoaddressid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "shiptoaddressid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "status"
+  column_normalized: "status"
+  raw_metadata:
+    scale: 0
+    precision: 3
+    nullable_flag: false
+  data_type: "int"
+  version_number: 1
+  column_alias: "status"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "subtotal"
+  column_normalized: "subtotal"
+  raw_metadata:
+    scale: 4
+    precision: 19
+    nullable_flag: false
+  data_type: "decimal"
+  version_number: 1
+  column_alias: "subtotal"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "taxamt"
+  column_normalized: "taxamt"
+  raw_metadata:
+    scale: 4
+    precision: 19
+    nullable_flag: false
+  data_type: "decimal"
+  version_number: 1
+  column_alias: "taxamt"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "territoryid"
+  column_normalized: "territoryid"
+  raw_metadata:
+    scale: 0
+    precision: 10
+    nullable_flag: true
+  data_type: "int"
+  version_number: 1
+  column_alias: "territoryid"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+- raw_attribute_name: "totaldue"
+  column_normalized: "totaldue"
+  raw_metadata:
+    scale: 4
+    precision: 19
+    nullable_flag: false
+  data_type: "decimal"
+  version_number: 1
+  column_alias: "totaldue"
+  unique_flag: false
+  update_datetime: "2022-06-06T18:27:44.229944"
+dependencies:
+- source_name: "3275group test 3275 b"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-06-07T21:31:17.624612"
+  created_userid: "jswanson@wmp.com"
+- source_name: "salesorderheader b 3278"
+  hard_dependency_flag: false
+  dependency_interval: "00:00:00"
+  active_flag: true
+  create_datetime: "2022-06-06T18:32:20.89934"
+  created_userid: "jswanson@wmp.com"
+relations:
+- relation_uid: "0045098ae44261154c03e235eef8b5bb"
+  related_source_name: "salesorderheader b 3278"
+  relation_name: "test 3278"
+  primary_flag: true
+  expression: "[This].billtoaddressid = [Related].billtoaddressid"
+  source_cardinality: "M"
+  related_source_cardinality: "M"
+  expression_parsed: "P<1> = P<2>"
+  active_flag: true
+  create_datetime: "2022-06-06T18:32:20.89934"
+  created_userid: "jswanson@wmp.com"
+  update_datetime: "2023-04-10T21:10:37.228559"
+  parameters:
+  - id: 1
+    type: "raw"
+    name: "billtoaddressid"
+    source_name: "salesorderheader a 3278"
+  - id: 2
+    type: "raw"
+    name: "billtoaddressid"
+    source_name: "salesorderheader b 3278"
+channels:
+- output_name: "virtual"
+  output_source_name: "salesorderheader a 3278"
+  operation_type: "none"
+  output_package_parameters:
+    key_history: false
+    full_output_flag: false
+    custom_parameters: {}
+  include_pass_flag: true
+  include_fail_flag: false
+  include_warn_flag: false
+  output_source_columns:
+  - output_column_name: "accountnumber"
+    expression: "[This].accountnumber"
+    parameter:
+      name: "accountnumber"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+    update_datetime: "2022-06-07T21:33:18.179716"
+    updated_userid: "jswanson@wmp.com"
+  - output_column_name: "billtoaddressid"
+    expression: "billtoaddressid"
+    parameter:
+      name: "billtoaddressid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "comment"
+    expression: "comment"
+    parameter:
+      name: "comment"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "creditcardapprovalcode"
+    expression: "creditcardapprovalcode"
+    parameter:
+      name: "creditcardapprovalcode"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "creditcardid"
+    expression: "creditcardid"
+    parameter:
+      name: "creditcardid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "currencyrateid"
+    expression: "currencyrateid"
+    parameter:
+      name: "currencyrateid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "customerid"
+    expression: "customerid"
+    parameter:
+      name: "customerid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "duedate"
+    expression: "duedate"
+    parameter:
+      name: "duedate"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "freight"
+    expression: "freight"
+    parameter:
+      name: "freight"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "modifieddate"
+    expression: "modifieddate"
+    parameter:
+      name: "modifieddate"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "onlineorderflag"
+    expression: "onlineorderflag"
+    parameter:
+      name: "onlineorderflag"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "orderdate"
+    expression: "orderdate"
+    parameter:
+      name: "orderdate"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "purchaseordernumber"
+    expression: "purchaseordernumber"
+    parameter:
+      name: "purchaseordernumber"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "revisionnumber"
+    expression: "revisionnumber"
+    parameter:
+      name: "revisionnumber"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "rowguid"
+    expression: "rowguid"
+    parameter:
+      name: "rowguid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "salesorderid"
+    expression: "salesorderid"
+    parameter:
+      name: "salesorderid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "salesordernumber"
+    expression: "salesordernumber"
+    parameter:
+      name: "salesordernumber"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "salespersonid"
+    expression: "salespersonid"
+    parameter:
+      name: "salespersonid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "shipdate"
+    expression: "shipdate"
+    parameter:
+      name: "shipdate"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "shipmethodid"
+    expression: "shipmethodid"
+    parameter:
+      name: "shipmethodid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "shiptoaddressid"
+    expression: "shiptoaddressid"
+    parameter:
+      name: "shiptoaddressid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "status"
+    expression: "status"
+    parameter:
+      name: "status"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "subtotal"
+    expression: "subtotal"
+    parameter:
+      name: "subtotal"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "taxamt"
+    expression: "taxamt"
+    parameter:
+      name: "taxamt"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "territoryid"
+    expression: "territoryid"
+    parameter:
+      name: "territoryid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "totaldue"
+    expression: "totaldue"
+    parameter:
+      name: "totaldue"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:09.078481"
+    created_userid: "jswanson@wmp.com"
+  - output_column_name: "x"
+    expression: "[This].billtoaddressid"
+    parameter:
+      name: "billtoaddressid"
+      type: "raw"
+      source_name: "salesorderheader a 3278"
+    ipu_weight: 1
+    create_datetime: "2022-06-07T21:33:31.09537"
+    created_userid: "jswanson@wmp.com"
+  ipu_weight: 27
+  active_flag: true
+  created_userid: "jswanson@wmp.com"
+  create_datetime: "2022-06-07T21:32:15.839622"
+  updated_userid: "jswanson@wmp.com"
+  update_datetime: "2022-06-07T21:33:31.09537"

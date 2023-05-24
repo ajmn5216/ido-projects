@@ -1,0 +1,24 @@
+---
+output_name: "Crell3 Output for Loopback2"
+output_type: "virtual"
+output_package_parameters:
+  view_name: "LOOPY"
+output_description: "t"
+alert_parameters:
+  output_failure_topics: []
+  output_success_topics: []
+columns:
+- position: 2
+  name: "b"
+  datatype: "int"
+  precision: 8
+  scale: 0
+  created_userid: "jcrell@wmp.com"
+  create_datetime: "2022-05-17T13:43:03.193788"
+  updated_userid: "aakanda@westmonroepartners.com"
+  update_datetime: "2022-10-28T17:02:10.705878"
+active_flag: true
+created_userid: "jcrell@wmp.com"
+create_datetime: "2022-05-17T13:43:03.193788"
+update_datetime: "2022-10-28T17:02:10.705878"
+updated_userid: "aakanda@westmonroepartners.com"

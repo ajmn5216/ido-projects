@@ -1,0 +1,37 @@
+---
+source_name: "multipart test"
+source_description: "x"
+ingestion_parameters:
+  file_mask: "testingdir"
+  delete_file: false
+  mask_parsing: "glob"
+  archive_folder: "archive"
+  source_file_type: "multipart_file"
+  disable_initiation: false
+parsing_parameters:
+  force_case_insensitive: true
+  fail_on_missing_columns: false
+  lock_schema_new_columns: false
+  lock_schema_datatype_changes: false
+cdc_refresh_parameters: {}
+alert_parameters:
+  ingestion_failure_topics: []
+  ingestion_success_topics: []
+  data_processing_failure_topics: []
+  data_processing_success_topics: []
+file_type: "parquet"
+refresh_type: "full"
+connection_type: "file"
+connection_name: "S3 ingest"
+initiation_type: "scheduled"
+cost_parameters:
+  max_retries: 3
+  disable_profiling: false
+parser: "spark"
+process_configuration_name: "Default Sparky Configuration"
+cleanup_configuration_name: "Default"
+active_flag: true
+create_datetime: "2022-10-31T20:28:06.767377"
+created_userid: "jswanson@wmp.com"
+update_datetime: "2022-11-01T20:00:51.6893"
+updated_userid: "jswanson@wmp.com"
